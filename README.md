@@ -4,5 +4,5 @@ Analysis of treatment naive and neo-adjuvant chemotherapy treated high-grade ser
 
 #
 <p align="center">
-  <img src="https://github.com/cansysbio/HGSOC_TME_Heterogeneity/blob/Graphical-abstract/0.GraphicalAbstract/OVCT_GraphicalAbstract_Rebuttal_ng.pdf" width="520" height="412"></div>
+  <img src="https://github.com/cansysbio/HGSOC_TME_Heterogeneity/blob/Graphical-abstract/0.GraphicalAbstract/OVCT_GraphicalAbstract_Rebuttal_ng.png" width="520" height="412"></div>
 </p>
