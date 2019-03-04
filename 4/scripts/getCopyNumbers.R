@@ -16,7 +16,7 @@ library(rlist)
 # Entrez ID, HGNC gene symbol map
 gene_map = as.data.frame(org.Hs.egSYMBOL)
 
-setwd("/Users/koplev01/GoogleDrive/projects/cambridge/ovarianCancerHeterogeneityChemo/repo/HGSOC_TME_Heterogeneity/4")
+setwd("~/GoogleDrive/projects/cambridge/ovarianCancerHeterogeneityChemo/repo/HGSOC_TME_Heterogeneity/4")
 
 source("lib/parse.R")
 

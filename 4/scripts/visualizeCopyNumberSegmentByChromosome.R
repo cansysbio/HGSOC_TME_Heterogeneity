@@ -12,7 +12,7 @@ data(UCSC.HG19.Human.CytoBandIdeogram)
 library(compiler)
 enableJIT(3)
 
-setwd("/Users/koplev01/GoogleDrive/projects/cambridge/ovarianCancerHeterogeneityChemo/repo/HGSOC_TME_Heterogeneity/4")
+setwd("~/GoogleDrive/projects/cambridge/ovarianCancerHeterogeneityChemo/repo/HGSOC_TME_Heterogeneity/4")
 
 source("lib/parse.R")
 source("lib/tests.R")
