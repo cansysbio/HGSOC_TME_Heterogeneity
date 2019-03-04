@@ -10,7 +10,6 @@ library(data.table)
 setwd("~/GoogleDrive/projects/cambridge/ovarianCancerHeterogeneityChemo/repo/HGSOC_TME_Heterogeneity/4")
 
 source("lib/parse.R")
-# source("lib/plots.R")
 
 # Load TitanCNA results table
 opt_clust = loadOptClust("data/titanCNA_optimalClusterSolutions.csv", sep=",")
