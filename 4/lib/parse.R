@@ -109,3 +109,36 @@ loadPatientColors = function(opt_clust) {
 
 	return(patient_colors)
 }
+
+# Load TitanCNA results tables into environments
+loadTitanResultsEnv = function(paths, res_dir) {
+	d = lapply(paths, function(path) {
+		message("Loading :", path)
+		env = new.env()  # new R enviroment
+		load(
+			paste0(
+				file.path(res_dir, path),
+				".RData"
+			),
+			envir=env
+		)
+
+		return(env)
+	})
+}
+
+
+# Get matrix of features from TitanCNA results
+# Allowing for NA
+getFeatureMatrix = function(cna_genes, gene_ids, feature) {
+	mat = sapply(cna_genes, function(tab) {
+		values = tab[[feature]]
+
+		# Match values to gene IDs, allowing for NA subscripts
+		matched_values = values[match(gene_ids, tab$gene_id)]
+		return(matched_values)
+	})
+
+	rownames(mat) = gene_ids
+	return(mat)
+}
