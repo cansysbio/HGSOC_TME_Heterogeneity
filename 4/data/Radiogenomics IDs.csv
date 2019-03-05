@@ -1,0 +1,62 @@
+﻿Sample ID,Paper ID
+RG1_T3,Omentum Blue
+RG1_N,Normal
+RG1_T5,Ovary Blue
+RG1_T6,Ovary Yellow
+RG1_T7,Ovary Green
+RG4_T1,Omentum Yellow
+RG4_T2,Omentum Blue
+RG4_T3,Omentum Green
+RG4_T4,Ovary Yellow
+RG4_T5,Ovary Blue
+RG4_N,Normal
+RG5_T12,Ovary Blue-A
+RG5_T13,Ovary Blue-B
+RG5_T14_Rep,Ovary Yellow-A
+RG5_T15,Ovary Yellow-B
+RG5_T16,Ovary Green-A
+RG5_T17,Ovary Green-B
+RG5_T22,Cul de Sac Blue
+RG5_T24,Adnexal Surface Yellow
+RG5_N,Normal
+RG6_T3,Omentum Blue
+RG6_N,Normal
+RG6_T12,Ovary Yellow
+RG6_T13,Ovary Blue
+RG6_T16,Ovary Green
+RG10_T5,Omentum Green
+RG10_T7,Omentum Blue
+RG10_T8,Paracolic Gutter Yellow
+RG10_T17,Ovary Yellow
+RG10_T18,Ovary Blue
+RG10_T19,Ovary Green
+RG10_N,Normal
+RG13_T10,Omentum Green
+RG13_T11,Omentum Blue
+RG13_T122,Ovary Green
+RG13_T13,Ovary Blue
+RG13_T14,Ovary Yellow
+RG13_N,Normal
+RG16_T1,Ovary Blue
+RG16_T3,Ovary Yellow
+RG16_T5,Pouch of Douglas Blue
+RG16_T9,Psoas Yellow
+RG16_N,Normal
+RG17_T6,Omentum - Yellow
+RG17_T7,Omentum - Green
+RG17_T9,Omentum - Blue
+RG17_T19,Ovary Blue
+RG17_T13,Serosa - Green
+RG17_T14,Serosa - Blue
+RG17_N,Normal
+RG19-T7,Omentum Green
+RG19-T8,Omentum Blue
+RG19-T9,Omentum Yellow
+RG19-T10,Bladder Blue
+RG19-T11,Ovary Yellow
+RG19-N,Normal
+RG20-T8,Ovary Blue
+RG20-T10,Ovary Green
+RG20-T12,Ovary Yellow
+RG20-T14,Appendix Yellow
+RG20-N,Normal
