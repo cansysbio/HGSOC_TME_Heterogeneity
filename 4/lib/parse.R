@@ -142,3 +142,29 @@ getFeatureMatrix = function(cna_genes, gene_ids, feature) {
 	rownames(mat) = gene_ids
 	return(mat)
 }
+
+
+getVariantClassIndicatorMatrices = function(genes, tumor_ids, mut) {
+    # Get (gene x tumor) indicator matrices for all variant classes
+    variant_class = unique(mut$Variant_Classification)
+    mut_matrices = lapply(variant_class, function(var_class) {
+
+        # Get indicator matrix (gene x tumor) for given mutation type
+        mut_sub = mut[mut$Variant_Classification == var_class, ]
+
+        mut_sub_ind = sapply(tumor_ids, function(tum_id) {
+            # tumor loop
+            sapply(genes, function(g) {
+                # gene loop
+                return(any(mut_sub$Hugo_Symbol == g & mut_sub$Tumor_Sample_Barcode == tum_id))
+            })
+        })
+
+        mut_sub_ind = mut_sub_ind * 1  # boolean -> indicator matrix (trick)
+
+        return(mut_sub_ind)
+    })
+    names(mut_matrices) = gsub("'", "", variant_class)
+
+    return(mut_matrices)
+}
