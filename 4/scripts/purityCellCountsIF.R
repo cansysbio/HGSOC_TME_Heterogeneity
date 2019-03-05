@@ -108,46 +108,48 @@ ci_cell_frac_matched = ci_cell_frac[idx, ]
 pdf("plots/TIL_purity_ploidy_cor_v6.pdf", width=10.5, height=2.7)
 par(mfcol=c(1, 6))
 
+colors = brewer.pal(9, "Set1")
+
 feat = "cd8_frac"
 scatterPlotCI(mean_cell_frac_matched[[feat]] * 100, opt_clust$purity,
 	ci_cell_frac_matched[[feat]] * 100,
 	ylab="Tumour purity (TitanCNA)", xlab="CD8+ (%)",
-	bg=brewer.pal(9, "Set1")[1]
+	bg=colors[1]
 )
 
 feat = "cd4_frac"
 scatterPlotCI(mean_cell_frac_matched[[feat]] * 100, opt_clust$purity,
 	ci_cell_frac_matched[[feat]] * 100,
 	ylab="Tumour Purity (TitanCNA)", xlab="CD4+ (%)",
-	bg=brewer.pal(9, "Set1")[2]
+	bg=colors[2]
 )
 
 feat = "cd4cd8_comb_frac"
 scatterPlotCI(mean_cell_frac_matched[[feat]] * 100, opt_clust$purity,
 	ci_cell_frac_matched[[feat]] * 100,
 	ylab="Tumour Purity (TitanCNA)", xlab="CD4+ or CD8+ (%)",
-	bg=brewer.pal(9, "Set1")[3]
+	bg=colors[3]
 )
 
 feat = "foxp3_frac"
 scatterPlotCI(mean_cell_frac_matched[[feat]] * 100, opt_clust$purity,
 	ci_cell_frac_matched[[feat]] * 100,
 	ylab="Tumour Purity (TitanCNA)", xlab="Foxp3+ (%)",
-	bg=brewer.pal(9, "Set1")[4]
+	bg=colors[4]
 )
 
 feat = "cd4foxp3_frac"
 scatterPlotCI(mean_cell_frac_matched[[feat]] * 100, opt_clust$purity,
 	ci_cell_frac_matched[[feat]] * 100,
 	ylab="Tumour Purity (TitanCNA)", xlab="CD4+Foxp3+ (%)",
-	bg=brewer.pal(9, "Set1")[5]
+	bg=colors[5]
 )
 
 feat = "cd4cd8foxp3_comb_frac"
 scatterPlotCI(mean_cell_frac_matched[[feat]] * 100, opt_clust$purity,
 	ci_cell_frac_matched[[feat]] * 100,
 	ylab="Tumour Purity (TitanCNA)", xlab="CD4+ or CD8+ or Foxp3+ (%)",
-	bg=brewer.pal(9, "Set1")[7]
+	bg=colors[7]
 )
 
 dev.off()
