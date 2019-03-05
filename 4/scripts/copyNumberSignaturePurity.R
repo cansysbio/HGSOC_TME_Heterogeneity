@@ -34,7 +34,6 @@ for (i in c(1, 6, 4)) {
 }
 dev.off()
 
-
 # Stacked barplot ordered by purity
 pdf("plots/cn_signature_purity_order.pdf", height=3.5, width=9)
 
