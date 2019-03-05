@@ -12,7 +12,6 @@ library(sslist)
 library(TitanCNA)
 library(rlist)
 
-
 # Entrez ID, HGNC gene symbol map
 gene_map = as.data.frame(org.Hs.egSYMBOL)
 
@@ -58,8 +57,6 @@ segs_format = lapply(segs, function(s) {
 	return(s)
 })
 
-
-
 # Load fits with 1 clone specified
 d_single = loadTitanResultsEnv(
 	paste0("results/titan/hmm/titanCNA_ploidy2/", as.character(opt_clust$barcode), "_cluster1"),
@@ -82,7 +79,6 @@ lapply(segs_single, function(x) table(x$Copy_Number))
 gene_coords = genes(TxDb.Hsapiens.UCSC.hg19.knownGene)
 
 
-
 cna_genes = lapply(1:length(segs_format), function(i) {
 	# Extract genomic ranges from TitanCNA segments
 	cna_coords = makeGRangesFromDataFrame(segs_format[[i]])
@@ -97,9 +93,7 @@ cna_genes = lapply(1:length(segs_format), function(i) {
 	return(merged_coords)
 })
 
-
 gene_ids = unique(unlist(lapply(cna_genes, function(x) x$gene_id)))
-
 
 cna_mat = getFeatureMatrix(cna_genes, gene_ids, "Copy_Number")
 

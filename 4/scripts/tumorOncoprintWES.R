@@ -1,3 +1,4 @@
+# Plots oncoprint representation of whole-exome sequencing data. Both mutation and copy-number calls.
 rm(list=ls())
 
 library(ComplexHeatmap)

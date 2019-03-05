@@ -6,7 +6,6 @@ library(RColorBrewer)
 library(stringr)
 library(data.table)
 
-
 setwd("~/GoogleDrive/projects/cambridge/ovarianCancerHeterogeneityChemo/repo/HGSOC_TME_Heterogeneity/4")
 
 source("lib/parse.R")
@@ -17,6 +16,7 @@ opt_clust = loadOptClust("data/titanCNA_optimalClusterSolutions.csv", sep=",")
 colors = loadPatientColors(opt_clust)
 
 
+# Scatter plot of ploidy-purity from TitanCNA
 pdf("plots/titanCNA_ploidy_purity.pdf", width=5.5, height=5.5)
 
 pts_col = colors[as.integer(opt_clust$patient_id)]
