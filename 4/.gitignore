@@ -1,2 +1,5 @@
 .DS_Store
 .Rapp.history
+data/GSEA/CNA_mRNA
+data/GSEA/CNA_purity
+data/GSEA/mRNA_purity
