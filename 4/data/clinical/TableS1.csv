@@ -1,0 +1,9 @@
+﻿CASE_ID,AGE_AT_DIAGNOSIS,BRCA_STATUS,STAGE,THERAPY_TYPE,NUMBER_OF_ADJUVANT_CYCLES,RECURRENCE,PFS_MONTHS,DECEASED,OS_MONTHS
+1,68,negative,IIIC,"IPx1 then IV, dose dense carbo/taxol",6,no,22.4,no,22.4
+4,68,BRCA2,IIIC,"IV, dose dense carbo/taxol",6,no,19,no,19
+5,39,negative,IVB,"IV, dose dense carbo/taxol x 6; IP cisplatin x 3",9,yes,15.6,no,15.6
+6,70,negative,IV ,"IV, dose dense carbo/taxol",6,no,18.9,no,18.9
+10,63,negative,IIIC,IV/IP Paclitaxel + Cisplatin,6,yes,4,no,4
+13,41,negative,IV,IV/IP Paclitaxel + Cisplatin,6,no,15.7,no,15.7
+16,62,negative,IV,"IV, dose dense carbo/taxol",6,yes,POD,yes,5.5
+17,66,negative,IIIC,"IV, dose dense carbo/taxol",6,yes,12,no,12
