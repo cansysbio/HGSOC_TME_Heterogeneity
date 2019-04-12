@@ -21,13 +21,13 @@ enrich_cna_purity = rbind(
 )
 
 enrich_cna_mrna = rbind(
-	read.csv("data/GSEA/CNA_mRNA/GseaPreranked_hallmarks_all_m10000/gsea_report_for_na_pos_1544702617095.csv"),
-	read.csv("data/GSEA/CNA_mRNA/GseaPreranked_hallmarks_all_m10000/gsea_report_for_na_neg_1544702617095.csv")
+	read.csv("data/GSEA/CNA_mRNA/GseaPreranked_hallmarks_all_m10000/gsea_report_for_na_pos_1555074277249.csv"),
+	read.csv("data/GSEA/CNA_mRNA/GseaPreranked_hallmarks_all_m10000/gsea_report_for_na_neg_1555074277249.csv")
 )
 
 enrich_mrna_purity = rbind(
-	read.csv("data/GSEA/mRNA_purity/GseaPreranked_hallmarks_all_m10000/gsea_report_for_na_pos_1549027369961.csv"),
-	read.csv("data/GSEA/mRNA_purity/GseaPreranked_hallmarks_all_m10000/gsea_report_for_na_neg_1549027369961.csv")
+	read.csv("data/GSEA/mRNA_purity/GseaPreranked_hallmarks_all_m10000/gsea_report_for_na_pos_1555074918665.csv"),
+	read.csv("data/GSEA/mRNA_purity/GseaPreranked_hallmarks_all_m10000/gsea_report_for_na_neg_1555074918665.csv")
 )
 
 
@@ -54,7 +54,7 @@ colnames(nes_mat) = gsub("_", " ", colnames(nes_mat))
 
 
 # Heatmap comparison of enrichment results
-pdf("plots/cor_ranking_hallmark_GSEA_enrich_v3.pdf", width=7.35)
+pdf("plots/cor_ranking_hallmark_GSEA_enrich_v4.pdf", width=7.35)
 
 # Filter terms to include
 fdr = 0.05
@@ -82,7 +82,7 @@ heatmap.2(t(nes_mat_filter), trace="none",
 	mar=c(12, 28),
 	col=colorRampPalette(rev(brewer.pal(9, "RdBu")))(100),
 	Rowv=FALSE, Colv=FALSE,
-	cexRow=1, cexCol=1,
+	cexRow=0.9, cexCol=1,
 	cellnote=t(sig),
 	notecol="black",
 	ylab="GSEA hallmarks",
@@ -95,7 +95,7 @@ dev.off()
 
 
 # CNA-mRNA vs mRNA-purity enrichment scatterplot
-pdf("plots/scatter_GSEA_enrich.pdf", width=5, height=6)
+pdf("plots/scatter_GSEA_enrich_v2.pdf", width=5, height=6)
 i = 1
 j = 2
 
@@ -145,7 +145,7 @@ dev.off()
 
 
 # Enrichment scatterplot, colored by hallmark classification
-pdf("cmpCopyNUmber/GSEA/plots/scatter_GSEA_enrich_v2.pdf", width=5, height=6)
+pdf("plots/scatter_GSEA_enrich_v3.pdf", width=5, height=6)
 i = 1
 j = 2
 
@@ -185,7 +185,7 @@ text(x=nes_mat[i, legend_idx],
 	y=nes_mat[j, legend_idx],
 	labels=colnames(nes_mat)[legend_idx],
 	pos=3,
-	cex=0.8,
+	cex=0.6,
 	offset=0.3,
 	col=pt_col[legend_idx],
 	xpd=TRUE
