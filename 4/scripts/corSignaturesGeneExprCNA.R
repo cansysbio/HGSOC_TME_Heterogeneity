@@ -39,10 +39,13 @@ cna = loadCNA("data/cna.csv")
 cna_mat = data.matrix(cna[, c(-1, -2)])
 rownames(cna_mat) = cna$hgnc_symbol
 
+colnames(cna_mat)[colnames(cna_mat) == "RG13T12"] = "RG13T122"  # Reintroduce typo for consistency with mRNA annotation
+
 # Load gene expression matrix
 expr = fread("data/OVCTp_log2exp_loess_norm.txt")
 
-expr_samples = loadSampleAnnot("data/OVCT_Tnaive_WES_labels.txt")
+# expr_samples = loadSampleAnnot("data/OVCT_Tnaive_WES_labels.txt")
+expr_samples = loadSampleAnnot(file_path="data/TreatmentNaive_SampleLabels_WESTumourCellularity_mRNAtumourCellularity_MAPPINGS.csv")
 
 # Load Titan table
 titan = loadOptClust("data/titanCNA_optimalClusterSolutions.csv", sep=",")
@@ -50,8 +53,12 @@ titan = loadOptClust("data/titanCNA_optimalClusterSolutions.csv", sep=",")
 # expression matrix
 expr_mat = data.matrix(expr[, -1])
 
-colnames(expr_mat) = expr_samples$tumor[match(colnames(expr_mat), expr_samples$exp_label)]
+colnames(expr_mat) = expr_samples$wes_label[match(colnames(expr_mat), expr_samples$Well)]
 rownames(expr_mat) = expr$Hugo_Symbol
+
+message("Matching samples: ", sum(colnames(expr_mat) %in% colnames(cna_mat)))
+message("Mismatches: ",
+	paste(colnames(expr_mat)[!colnames(expr_mat) %in% colnames(cna_mat)], collapse=", "))
 
 # Match expression matrix to cna_mat
 expr_mat_match = expr_mat[
@@ -104,6 +111,7 @@ write.table(cna_mrna_stats[, c("gene_symbol", "r")],
 	sep="\t",
 	row.names=FALSE)	
 
+write.csv(cna_mrna_stats, file="data/corSig/CNA_mRNA_cor_spearman.csv", row.names=FALSE)
 
 
 # CNA-mRNA volcano plot
@@ -170,7 +178,7 @@ write.table(cna_purity_stats[, c("gene_symbol", "r")],
 # -------------------------------
 
 # Check if expression matrix matches
-stopifnot(all(colnames(expr_mat_match) == titan$tumor, na.rm=TRUE))
+stopifnot(all(colnames(expr_mat_match) == titan$barcode, na.rm=TRUE))
 
 mrna_purity_tests = lapply(1:nrow(expr_mat_match), function(i) {
 	tryCatch({
@@ -237,9 +245,9 @@ plot(cna_mrna_stats_matched$r[idx], mrna_purity_stats$r[idx],
 		", P=", format(cor_test$p.value, digits=3),
 		", n=", sum(idx)),
 	cex.main=0.8,
-	bg=pts_col[idx],
+	col=pts_col[idx],
 	lwd=0.5,
-	pch=21,
+	pch=16,
 	cex=0.5,
 	bty="n"
 )
@@ -251,6 +259,8 @@ abline(h=-r_cutoff, col="grey", lty=2)
 
 idx_label = cna_mrna_stats_matched$gene_symbol %in% unlist(hallmark$genesets) & (cna_mrna_stats_matched$r > r_cutoff) & (abs(mrna_purity_stats$r) > r_cutoff)
 
+idx_label = cna_mrna_stats_matched$gene_symbol %in% unlist(hallmark$genesets) & (abs(cna_mrna_stats_matched$r) > r_cutoff) & (abs(mrna_purity_stats$r) > r_cutoff)
+
 text(cna_mrna_stats_matched$r[idx_label], mrna_purity_stats$r[idx_label],
 	labels=cna_mrna_stats_matched$gene_symbol[idx_label],
 	cex=0.8,
@@ -259,9 +269,9 @@ text(cna_mrna_stats_matched$r[idx_label], mrna_purity_stats$r[idx_label],
 
 legend("topleft",
 	legend=c("Oncogenic", "Stromal", "Immune", "Cellular stress", "Other"),
-	pt.bg=unlist(hallmark_colors[c("RED", "BLUE", "GREEN", "purple", "GREY")]),
+	col=unlist(hallmark_colors[c("RED", "BLUE", "GREEN", "purple", "GREY")]),
 	cex=0.8,
-	pch=21
+	pch=16
 )
 
 dev.off()
