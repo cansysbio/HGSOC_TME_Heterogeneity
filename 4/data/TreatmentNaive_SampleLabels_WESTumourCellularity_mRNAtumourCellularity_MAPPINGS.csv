@@ -1,0 +1,62 @@
+Well,Label,Key,Case_mRNA,Site,Habitat,Case_WES,Tumour_WES,Colour,Site_marker,TumourCellularity_WES,TumourCellularity_mRNA,mRNA_binary_TumourCellularity,,,,,Sample ID,Paper ID
+A01,A01_3640_5_Omentum,case10_omentum_green,10,omentum,green,10,5,#ff7f00,^,0.5973,0.730146964,Low,RG10_T5,Omentum Green,,,RG1_T3,Omentum Blue
+A02,A02_3640_7_Omentum,case10_omentum_blue,10,omentum,blue,10,7,#ff7f00,^,0.5065,0.673548492,Low,RG10_T7,Omentum Blue,,,RG1_N,Normal
+A03,A03_3640_9_Paracolic_Gutter,case10_paracolic_yellow,10,other,yellow,10,8,#ff7f00,s,0.4551,0.664977865,Low,RG10_T8,Paracolic Gutter Yellow,,,RG1_T5,Ovary Blue
+A04,A04_3640_17_R_Adnexa,case10_Radnexa_yellow,10,ovary,yellow,10,17,#ff7f00,o,0.6496,0.833912854,High,RG10_T17,Ovary Yellow,,,RG1_T6,Ovary Yellow
+A05,A05_3640_18_R_Adnexa,case10_Radnexa_blue,10,ovary,blue,10,18,#ff7f00,o,0.6706,0.801247606,High,RG10_T18,Ovary Blue,,,RG1_T7,Ovary Green
+A06,A06_3640_19_R_Adnexa,case10_Radnexa_green,10,ovary,green,10,19,#ff7f00,o,0.6695,0.821034222,High,RG10_T19,Ovary Green,,,RG4_T1,Omentum Yellow
+A07,A07_3436_3_Omentum,case6_omentum_blue,6,omentum,blue,6,3,#984ea3,^,0.7275,0.90091018,High,RG6_T3,Omentum Blue,,,RG4_T2,Omentum Blue
+A08,A08_3436_12_Ovary,case6_ovary_yellow,6,ovary,yellow,6,12,#984ea3,o,0.7929,0.867208199,High,RG6_T12,Ovary Yellow,,,RG4_T3,Omentum Green
+A09,A09_3436_13_Ovary,case6_ovary_blue,6,ovary,blue,6,13,#984ea3,o,0.7211,0.892721856,High,RG6_T13,Ovary Blue,,,RG4_T4,Ovary Yellow
+A10,A10_3436_15_Ovary,case6_ovary_white,6,ovary,green,6,16,#984ea3,o,0.792,0.896008925,High,RG6_T16,Ovary Green,,,RG4_T5,Ovary Blue
+A11,A11_3387_1_3_Omentum,case1_omentum_blue,1,omentum,blue,1,3,#e41a1c,^,0.7017,0.791027126,Low,RG1_T3,Omentum Blue,,,RG4_N,Normal
+B01,B01_3387_2_5_Ovary,case1_ovary_blue,1,ovary,blue,1,5,#e41a1c,o,0.5246,0.644849811,Low,RG1_T5,Ovary Blue,,,RG5_T12,Ovary Blue-A
+B02,B02_3387_2_6_Ovary,case1_ovary_yellow,1,ovary,yellow,1,6,#e41a1c,o,0.8579,0.947583832,High,RG1_T6,Ovary Yellow,,,RG5_T13,Ovary Blue-B
+B03,B03_3387_2_7_Ovary,case1_ovary_green,1,ovary,green,1,7,#e41a1c,o,0.7423,0.890086836,High,RG1_T7,Ovary Green,,,RG5_T14_Rep,Ovary Yellow-A
+B04,B04_2839_1_Omentum,case4_omentum_yellow,4,omentum,yellow,4,1,#377eb8,^,0.7183,0.904695899,High,RG4_T1,Omentum Yellow,,,RG5_T15,Ovary Yellow-B
+B05,B05_2839_2_Omentum,case4_omentum_blue,4,omentum,blue,4,2,#377eb8,^,0.7157,0.876038887,High,RG4_T2,Omentum Blue,,,RG5_T16,Ovary Green-A
+B06,B06_2839_3_Omentum,case4_omentum_green,4,omentum,green,4,3,#377eb8,^,0.6561,0.821541762,High,RG4_T3,Omentum Green,,,RG5_T17,Ovary Green-B
+B07,B07_2839_4_L_ovary_tube_pelvic_side_wall,case4_antNXC_yellow,4,ovary,yellow,4,4,#377eb8,o,0.6437,0.704962335,Low,RG4_T4,Ovary Yellow,,,RG5_T22,Cul de Sac Blue
+B08,B08_2839_6_L_fallopian_tube,case4_postNXC_blue,4,ovary,blue,4,5,#377eb8,o,0.6137,0.769271076,Low,RG4_T5,Ovary Blue,,,RG5_T24,Adnexal Surface Yellow
+B09,B09_2489_12_L_Ovary,case5_ovary_blue,5,ovary,blue,5,Replicates (12/13),#4daf4a,o,0.6085,0.820899435,High,RG5_T12,Ovary Blue-A,RG5_T13,Ovary Blue-B,RG5_N,Normal
+B10,B10_2489_14_L_Ovary,case5_ovary_yellow,5,ovary,yellow,5,Replicates (14/15),#4daf4a,o,0.5533,0.793648508,High,RG5_T14_Rep,Ovary Yellow-A,RG5_T15,Ovary Yellow-B,RG6_T3,Omentum Blue
+B11,B11_2489_16_L_Ovary,case5_ovary_green,5,ovary,green,5,Replicates (16/17),#4daf4a,o,0.5763,0.817112092,High,RG5_T16,Ovary Green-A,RG5_T17,Ovary Green-B,RG6_N,Normal
+B12,B12_2489_23_Adnexa,case5_adnexa_yellow,5,other,yellow,5,24,#4daf4a,s,,0.805409247,High,RG5_T24,Adnexal Surface Yellow,,,RG6_T12,Ovary Yellow
+C01,C01_7971_10_Omentum,case13_omentum_green,13,omentum,green,13,10,#ffff33,^,0.6405,0.716419924,Low,RG13_T10,Omentum Green,,,RG6_T13,Ovary Blue
+C02,C02_7971_11_Omentum,case13_omentum_blue,13,omentum,blue,13,11,#ffff33,^,0.6084,0.78979429,Low,RG13_T11,Omentum Blue,,,RG6_T16,Ovary Green
+C03,C03_7971_12_R_Ovary,case13_Rovary_green,13,ovary,green,13,122,#ffff33,o,0.5633,0.717235501,Low,RG13_T122,Ovary Green,TYPO,,RG10_T5,Omentum Green
+C04,C04_7971_13_R_Ovary,case13_Rovary_blue,13,ovary,blue,13,13,#ffff33,o,0.5549,0.770388274,Low,RG13_T13,Ovary Blue,,,RG10_T7,Omentum Blue
+C05,C05_7971_14_R_Ovary,case13_Rovary_yellow,13,ovary,yellow,13,14,#ffff33,o,0.465,0.784784783,Low,RG13_T14,Ovary Yellow,,,RG10_T8,Paracolic Gutter Yellow
+C06,C06_0482_1_L_Ovary,case16_Lovary_blue,16,ovary,blue,16,1,#a65628,o,0.6625,0.800405299,High,RG16_T1,Ovary Blue,,,RG10_T17,Ovary Yellow
+C07,C07_0482_3_L_Ovary,case16_Lovary_orange,16,ovary,yellow,16,3,#a65628,o,0.6217,0.694818978,Low,RG16_T3,Ovary Yellow,,,RG10_T18,Ovary Blue
+C08,C08_0482_4_L_Ovary,case16_Lovary,16,ovary,,,,#a65628,o,,0.77702059,Low,,,,,RG10_T19,Ovary Green
+C09,C09_0482_5_Pouch_of_Douglas,case16_pofd_blue,16,other,blue,16,5,#a65628,s,0.7377,0.761314443,Low,RG16_T5,Pouch of Douglas Blue,,,RG10_N,Normal
+C10,C10_0482_9_R_Anterior_Psoas,case16_Rantpsoas_orange,16,other,yellow,16,9,#a65628,s,0.7359,0.81919919,High,RG16_T9,Psoas Yellow,,,RG13_T10,Omentum Green
+C11,C11_1860_6_L_Omentum,case17_Lomentum_yellow,17,omentum,yellow,17,6,#f781bf,^,0.3932,0.675107639,Low,RG17_T6,Omentum - Yellow,,,RG13_T11,Omentum Blue
+C12,C12_1860_9_L_Omentum,case17_Lomentum_blue,17,omentum,blue,17,9,#f781bf,^,0.4936,0.644917199,Low,RG17_T9,Omentum - Blue,,,RG13_T122,Ovary Green
+D01,D01_1860_13_Sigmoid_Serosa,case17_sigmoidser_green,17,other,green,17,13,#f781bf,s,0.569,0.698463962,Low,RG17_T13,Serosa - Green,,,RG13_T13,Ovary Blue
+D02,D02_1860_14_Sigmoid_Serosa,case17_sigmoidser_blue,17,other,blue,17,14,#f781bf,s,0.5998,0.652544272,Low,RG17_T14,Serosa - Blue,,,RG13_T14,Ovary Yellow
+D03,D03_1860_19_R_Ovary,case17_Rovary_blue,17,ovary,blue,17,19,#f781bf,o,0.801,0.870810602,High,RG17_T19,Ovary Blue,,,RG13_N,Normal
+,,,,,,,,,,,,,,,,,RG16_T1,Ovary Blue
+,,,,,,,,,,,,,,,,,RG16_T3,Ovary Yellow
+,,,,,,,,,,,,,,,,,RG16_T5,Pouch of Douglas Blue
+,,,,,,,,,,,,,,,,,RG16_T9,Psoas Yellow
+,,,,,,,,,,,,,,,,,RG16_N,Normal
+,,,,,,,,,,,,,,,,,RG17_T6,Omentum - Yellow
+,,,,,,,,,,,,,,,,,RG17_T7,Omentum - Green
+,,,,,,,,,,,,,,,,,RG17_T9,Omentum - Blue
+,,,,,,,,,,,,,,,,,RG17_T19,Ovary Blue
+,,,,,,,,,,,,,,,,,RG17_T13,Serosa - Green
+,,,,,,,,,,,,,,,,,RG17_T14,Serosa - Blue
+,,,,,,,,,,,,,,,,,RG17_N,Normal
+,,,,,,,,,,,,,,,,,RG19-T7,Omentum Green
+,,,,,,,,,,,,,,,,,RG19-T8,Omentum Blue
+,,,,,,,,,,,,,,,,,RG19-T9,Omentum Yellow
+,,,,,,,,,,,,,,,,,RG19-T10,Bladder Blue
+,,,,,,,,,,,,,,,,,RG19-T11,Ovary Yellow
+,,,,,,,,,,,,,,,,,RG19-N,Normal
+,,,,,,,,,,,,,,,,,RG20-T8,Ovary Blue
+,,,,,,,,,,,,,,,,,RG20-T10,Ovary Green
+,,,,,,,,,,,,,,,,,RG20-T12,Ovary Yellow
+,,,,,,,,,,,,,,,,,RG20-T14,Appendix Yellow
+,,,,,,,,,,,,,,,,,RG20-N,Normal

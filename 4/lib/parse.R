@@ -25,9 +25,14 @@ loadSampleAnnot = function(file_path) {
 	# Column annotation
 	annot = fread(file_path)
 
-	# Parse
-	annot$tumor = sapply(strsplit(annot$wes_label, "S"), function(x) x[1])
-	annot$descr = sapply(strsplit(annot$wes_label, "S"), function(x) x[2])
+	# Old well-based annotation
+	# annot$tumor = sapply(strsplit(annot$wes_label, "S"), function(x) x[1])
+	# annot$descr = sapply(strsplit(annot$wes_label, "S"), function(x) x[2])
+
+	# Remove empty rows
+	annot = annot[annot$Well != "", ]
+
+	annot$wes_label = gsub("_", "", annot$V14)
 
 	return(annot)
 }
