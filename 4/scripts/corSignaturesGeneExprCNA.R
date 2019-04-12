@@ -257,7 +257,7 @@ abline(v=-r_cutoff, col="grey", lty=2)
 abline(h=r_cutoff, col="grey", lty=2)
 abline(h=-r_cutoff, col="grey", lty=2)
 
-idx_label = cna_mrna_stats_matched$gene_symbol %in% unlist(hallmark$genesets) & (cna_mrna_stats_matched$r > r_cutoff) & (abs(mrna_purity_stats$r) > r_cutoff)
+# idx_label = cna_mrna_stats_matched$gene_symbol %in% unlist(hallmark$genesets) & (cna_mrna_stats_matched$r > r_cutoff) & (abs(mrna_purity_stats$r) > r_cutoff)
 
 idx_label = cna_mrna_stats_matched$gene_symbol %in% unlist(hallmark$genesets) & (abs(cna_mrna_stats_matched$r) > r_cutoff) & (abs(mrna_purity_stats$r) > r_cutoff)
 
