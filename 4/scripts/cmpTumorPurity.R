@@ -17,7 +17,9 @@ titan = loadOptClust("data/titanCNA_optimalClusterSolutions.csv", sep=",")
 
 # Load mRNA purity estimates from Alejandro
 # sample annotation
-sample_annot = loadSampleAnnot("data/OVCT_Tnaive_WES_labels.txt")
+# sample_annot = loadSampleAnnot("data/OVCT_Tnaive_WES_labels.txt")
+sample_annot = loadSampleAnnot("data/TreatmentNaive_SampleLabels_WESTumourCellularity_mRNAtumourCellularity_MAPPINGS.csv")
+sample_annot$exp_label = sample_annot$Well
 
 conv_scores = loadConvScores("data/OVCTp_log2exp_loess_norm_estimate_score.txt")
 
@@ -25,7 +27,10 @@ conv_scores = loadConvScores("data/OVCTp_log2exp_loess_norm_estimate_score.txt")
 conv = merge(conv_scores, sample_annot, by="exp_label")
 
 # Match conv to titan results
-conv_match = conv[match(titan$barcode, conv$tumor), ]
+# conv_match = conv[match(titan$barcode, conv$tumor), ]
+message("Samples matched: ", sum(!is.na(match(as.character(titan$barcode), conv$wes_label))))
+
+conv_match = conv[match(as.character(titan$barcode), conv$wes_label), ]
 
 
 pdf("plots/purity_comparison_mRNA_CNA.pdf", height=2.5, width=6)
@@ -57,6 +62,50 @@ scatterPlot(conv_match$StromalScore, titan$purity,
 )
 dev.off()
 
+
+# Bubble plot for TITAN purity vs ESTIMATE 
+# -----------------------
+
+colors = loadPatientColors(titan)
+pts_col = colors[as.integer(titan$patient_id)]
+pts_cex = titan$numClust
+
+
+pdf("plots/bubble_titanCNA_purity_mRNA_immune.pdf", width=4.1, height=4.5)
+x = conv_match$ImmuneScore
+y = titan$purity
+fit = lm(y~x)
+cor_test = cor.test(x, y)
+
+plot(x, y,
+	type="n",
+	# main="Copy-number alterations",
+	xlab="mRNA immune score (ESTIMATE)",
+	ylab="Copy-number tumor purity (TITAN)",
+	bty="n",
+	pch=21,
+	bg=pts_col,
+	cex=pts_cex
+)
+
+abline(fit, lty=1, lwd=1.5,
+	rgb(0,0,0,0.5),
+	# col="black"
+)
+
+points(x, y,
+	pch=21,
+	bg=pts_col,
+	cex=pts_cex
+)
+
+legend("topright", legend=c(
+	paste0("r=", format(cor_test$estimate, digits=3)),
+		paste0("P=", format(cor_test$p.value, digits=3))
+	),
+	bty="n"
+)
+dev.off()
 
 # Confusion matrix when classifying tumors into cold and hot using median value
 # -------------------------------------------------------
