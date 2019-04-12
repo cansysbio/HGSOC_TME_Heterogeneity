@@ -15,15 +15,19 @@ cna = fread("data/cna.csv")
 cna_mat = data.matrix(cna[, c(-1, -2)])
 rownames(cna_mat) = cna$hgnc_symbol
 
+colnames(cna_mat)[colnames(cna_mat) == "RG13T12"] = "RG13T122"  # Reintroduce typo for consistency with mRNA annotation
+
 # Load gene expression matrix
 expr = fread("data/OVCTp_log2exp_loess_norm.txt")
 
-expr_samples = loadSampleAnnot("data/OVCT_Tnaive_WES_labels.txt")
+# expr_samples = loadSampleAnnot("data/OVCT_Tnaive_WES_labels.txt")
+expr_samples = loadSampleAnnot("data/TreatmentNaive_SampleLabels_WESTumourCellularity_mRNAtumourCellularity_MAPPINGS.csv")
+
 
 # expression matrix
 expr_mat = data.matrix(expr[, -1])
 
-colnames(expr_mat) = expr_samples$tumor[match(colnames(expr_mat), expr_samples$exp_label)]
+colnames(expr_mat) = expr_samples$wes_label[match(colnames(expr_mat), expr_samples$Well)]
 rownames(expr_mat) = expr$Hugo_Symbol
 
 # Match expression matrix to cna_mat
@@ -31,6 +35,8 @@ expr_mat_match = expr_mat[
 	match(rownames(cna_mat), rownames(expr_mat)),
 	match(colnames(cna_mat), colnames(expr_mat))
 ]
+
+message("Matching samples: ", sum(!is.na(match(colnames(cna_mat), colnames(expr_mat)))))
 
 # Include genes where we have at least one measurement from microarray data
 include_genes = apply(expr_mat_match, 1, function(row) {
