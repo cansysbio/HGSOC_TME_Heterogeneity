@@ -48,8 +48,13 @@ expr_mat_match_filter = expr_mat_match[include_genes, ]
 
 
 pdf("plots/cna_mRNA_boxplots.pdf", width=5, height=6)
-gene_list = c("RAD51AP1", "PDCD10", "ETV7", "CEBPG")
-par(mfrow=c(2, 2))
+# gene_list = c("RAD51AP1", "PDCD10", "ETV7", "CEBPG")
+# par(mfrow=c(2, 2))
+
+
+pdf("plots/cna_mRNA_boxplots.pdf", width=5, height=6)
+gene_list = c("MYC", "MYCN")
+par(mfrow=c(1, 2))
 for (gene in gene_list) {
 	i = which(rownames(cna_mat_filter) == gene)
 
