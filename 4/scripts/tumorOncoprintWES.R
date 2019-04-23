@@ -59,6 +59,18 @@ genes = c("BRCA1", "BRCA2", "NF1", "PTEN", "RB1", "TP53",
     "BRAF"
 )
 
+# Ext list 2, including all Myc family genes
+genes = c("BRCA1", "BRCA2", "NF1", "PTEN", "RB1", "TP53",
+    "KRAS",
+    "MYC",
+    "MYCL",
+    "MYCN",
+    "SRC",
+    "ERBB2",  # HER2
+    "BRAF"
+)
+
+
 
 mut_type_all = getVariantClassIndicatorMatrices(genes, tumor_ids, mut)
 
@@ -108,7 +120,8 @@ cna_mat_list = lapply(cna_mat_list, function(mat) {
 # Dependencies: cna_mat_list, mut_type
 # ------------------------------------
 
-pdf("plots/oncoprint_extended_list2_v4_manualTP53.pdf", height=3.5, width=10)  # with deletion1
+# pdf("plots/oncoprint_extended_list2_v4_manualTP53.pdf", height=3.5, width=10)  # with deletion1
+pdf("plots/oncoprint_extended_list2_v4_manualTP53_MYC.pdf", height=3.5, width=10)  # with deletion1
 
 colors=c("black", brewer.pal(8, "Accent"))
 
