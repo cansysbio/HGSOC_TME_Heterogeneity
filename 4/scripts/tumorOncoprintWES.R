@@ -195,6 +195,7 @@ oncoPrint(c(
             gp=gpar(fill=box_col["3UTR"], col=outline_col))
     ),
     col=box_col,  # legend?
+    show_column_names=TRUE,
     top_annotation = HeatmapAnnotation(
         cbar=anno_oncoprint_barplot(),
         patient=patient_ids,
