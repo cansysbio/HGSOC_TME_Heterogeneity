@@ -121,7 +121,8 @@ cna_mat_list = lapply(cna_mat_list, function(mat) {
 # ------------------------------------
 
 # pdf("plots/oncoprint_extended_list2_v4_manualTP53.pdf", height=3.5, width=10)  # with deletion1
-pdf("plots/oncoprint_extended_list2_v4_manualTP53_MYC.pdf", height=3.5, width=10)  # with deletion1
+pdf("plots/oncoprint_extended_list2_v4_manualTP53.pdf", height=4.5, width=10)  # with deletion1, with column names
+# pdf("plots/oncoprint_extended_list2_v4_manualTP53_MYC.pdf", height=3.5, width=10)  # with deletion1
 
 colors=c("black", brewer.pal(8, "Accent"))
 
