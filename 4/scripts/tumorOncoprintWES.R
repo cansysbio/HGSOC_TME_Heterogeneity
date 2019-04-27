@@ -73,7 +73,7 @@ genes = c("BRCA1", "BRCA2", "NF1", "PTEN", "RB1", "TP53",
 
 
 # mut_type_all = getVariantClassIndicatorMatrices(genes, tumor_ids, mut)
-mut_type_all = getVariantClassIndicatorMatrices.2(genes, tumor_ids, mut)
+mut_type_all = getVariantClassIndicatorMatrices.2(genes, gsub("-", "", tumor_ids), mut)
 
 # Manually added mutation annotations. Based on manual inspection of DNA aligments.
 mut_type_all[["Frame_Shift_Del"]][genes == "TP53", grep("RG4T", tumor_ids)] = 1
