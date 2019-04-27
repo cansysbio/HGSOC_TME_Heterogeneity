@@ -38,10 +38,11 @@ patient_ids = str_extract(tumor_ids, "^RG([0-9]+)")  # patient ids
 # Load SNP calls from whole-exome sequencing data
 # Columns of interest: Variant_Type, Variant_Classification, Tumor_Sample_Barcode, Hugo_Symbol
 # ----------------------------------------
-mut = fread("data/oncotator_maf_ovct_filtered_updated.maf")  # using the padded exome bed file (@Danish)
+# mut = fread("data/oncotator_maf_ovct_filtered_updated.maf")  # using the padded exome bed file (@Danish)
+mut = fread("data/RG_ALL_WithinPatientSUFAM_updated.csv")  # using the padded exome bed file (@Danish)
 
 # Mutation classes prepended by SNP/DEL/INS...
-mut$Variant_Code = paste(mut$Variant_Type, mut$Variant_Classification, sep="_")
+#mut$Variant_Code = paste(mut$Variant_Type, mut$Variant_Classification, sep="_")
 
 
 # Load clinical data
@@ -59,20 +60,20 @@ genes = c("BRCA1", "BRCA2", "NF1", "PTEN", "RB1", "TP53",
     "BRAF"
 )
 
-# Ext list 2, including all Myc family genes
-genes = c("BRCA1", "BRCA2", "NF1", "PTEN", "RB1", "TP53",
-    "KRAS",
-    "MYC",
-    "MYCL",
-    "MYCN",
-    "SRC",
-    "ERBB2",  # HER2
-    "BRAF"
-)
+# # Ext list 2, including all Myc family genes
+# genes = c("BRCA1", "BRCA2", "NF1", "PTEN", "RB1", "TP53",
+#     "KRAS",
+#     "MYC",
+#     "MYCL",
+#     "MYCN",
+#     "SRC",
+#     "ERBB2",  # HER2
+#     "BRAF"
+# )
 
 
-
-mut_type_all = getVariantClassIndicatorMatrices(genes, tumor_ids, mut)
+# mut_type_all = getVariantClassIndicatorMatrices(genes, tumor_ids, mut)
+mut_type_all = getVariantClassIndicatorMatrices.2(genes, tumor_ids, mut)
 
 # Manually added mutation annotations. Based on manual inspection of DNA aligments.
 mut_type_all[["Frame_Shift_Del"]][genes == "TP53", grep("RG4T", tumor_ids)] = 1
@@ -121,7 +122,8 @@ cna_mat_list = lapply(cna_mat_list, function(mat) {
 # ------------------------------------
 
 # pdf("plots/oncoprint_extended_list2_v4_manualTP53.pdf", height=3.5, width=10)  # with deletion1
-pdf("plots/oncoprint_extended_list2_v4_manualTP53.pdf", height=4.5, width=10)  # with deletion1, with column names
+# pdf("plots/oncoprint_extended_list2_v4_manualTP53.pdf", height=4.5, width=10)  # with deletion1, with column names
+pdf("plots/oncoprint_extended_list2_v4_manualTP53_MSKCC.pdf", height=4.2, width=10)  # with deletion1, with column names
 # pdf("plots/oncoprint_extended_list2_v4_manualTP53_MYC.pdf", height=3.5, width=10)  # with deletion1
 
 colors=c("black", brewer.pal(8, "Accent"))
