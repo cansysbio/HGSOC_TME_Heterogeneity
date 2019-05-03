@@ -54,7 +54,7 @@ clinical = read.csv("data/clinical/TableS1.csv")  # contains BRCA2 germline stat
 # Load LOHHLA results
 # --------------------------------
 
-lohhla = fread("../../../Data/oncoprint_lohhla.txt")
+lohhla = fread("data/oncoprint_lohhla.txt")
 
 
 # oncoprint from ovarian tumor samples
