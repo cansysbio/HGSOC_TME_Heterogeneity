@@ -200,3 +200,30 @@ getVariantClassIndicatorMatrices.2 = function(genes, tumor_ids, mut) {
     return(mut_matrices)
 }
 
+
+# Parse HLA-LOH and Allelic Imbalance status from cleaned LOHHLA output files
+getHlaStatusIndicatorMatrices = function(tumor_ids, lohhla) {
+  # Get (gene x tumor) indicator matrices for all variant classes
+  variant_class = unique(lohhla$Variant_Classification)
+  hla_matrices = lapply(variant_class, function(var_class) {
+    
+    # Get indicator matrix (HLA x tumor) for given HLA status
+    hla_sub = lohhla[lohhla$Variant_Classification == var_class, ]
+    
+    hla_sub_ind = sapply(tumor_ids, function(tum_id) {
+      # tumor loop
+      sapply(genes, function(g) {
+        # gene loop
+        return(any(hla_sub$SYMBOL == g & hla_sub$TUMOR_SAMPLE == tum_id))
+      })
+    })
+    
+    hla_sub_ind = hla_sub_ind * 1  # boolean -> indicator matrix (trick)
+    
+    return(as.matrix(hla_sub_ind))
+  })
+  names(hla_matrices) = variant_class
+  
+  return(hla_matrices)
+}
+
