@@ -147,7 +147,7 @@ hla_type = getHlaStatusIndicatorMatrices(tumor_ids, lohhla)
 
 # pdf("plots/oncoprint_extended_list2_v4_manualTP53.pdf", height=3.5, width=10)  # with deletion1
 # pdf("plots/oncoprint_extended_list2_v4_manualTP53.pdf", height=4.5, width=10)  # with deletion1, with column names
-pdf("plots/oncoprint_extended_list2_v4_manualTP53_MSKCC.pdf", height=4.2, width=10)  # with deletion1, with column names
+pdf("plots/oncoprint_extended_list2_v4_manualTP53_MSKCC.pdf", height=4.0, width=10)  # with deletion1, with column names
 # pdf("plots/oncoprint_extended_list2_v4_manualTP53_MYC.pdf", height=3.5, width=10)  # with deletion1
 # pdf("plots/oncoprint_extended_list2_v4_manualTP53_MSKCC_HLA.pdf", height=4.2, width=10)  # with deletion1, with column names, with HLA status
 
