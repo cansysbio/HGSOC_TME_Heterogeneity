@@ -10,8 +10,8 @@ library(circlize)
 library(compiler)
 enableJIT(3)
 
-#setwd("~/GoogleDrive/projects/cambridge/ovarianCancerHeterogeneityChemo/repo/HGSOC_TME_Heterogeneity/4")
-setwd("~/Documents/CRUK/HGSOC_Chemo_Rebuttal/Git/HGSOC_TME_Heterogeneity/4")
+setwd("~/GoogleDrive/projects/cambridge/ovarianCancerHeterogeneityChemo/repo/HGSOC_TME_Heterogeneity/4")
+# setwd("~/Documents/CRUK/HGSOC_Chemo_Rebuttal/Git/HGSOC_TME_Heterogeneity/4")
 
 source("lib/parse.R")
 
@@ -60,23 +60,23 @@ lohhla = fread("data/oncoprint_lohhla.txt")
 # oncoprint from ovarian tumor samples
 # ------------------------------------------
 
-# Ext list 2, with HLA-A/B/C
-genes = c("BRCA1", "BRCA2", "NF1", "PTEN", "RB1", "TP53",
-    "KRAS", "MYC", "SRC",
-    "ERBB2",  # HER2
-    "BRAF",
-    "HLA_A",
-    "HLA_B",
-    "HLA_C"
-)
-
-
-# # Ext list 2
+# # Ext list 2, with HLA-A/B/C
 # genes = c("BRCA1", "BRCA2", "NF1", "PTEN", "RB1", "TP53",
 #     "KRAS", "MYC", "SRC",
 #     "ERBB2",  # HER2
-#     "BRAF"
+#     "BRAF",
+#     "HLA_A",
+#     "HLA_B",
+#     "HLA_C"
 # )
+
+
+# Ext list 2
+genes = c("BRCA1", "BRCA2", "PTEN", "RB1", "TP53",
+    "KRAS", "MYC", "SRC",
+    "ERBB2",  # HER2
+    "BRAF"
+)
 
 # # Ext list 2, including all Myc family genes
 # genes = c("BRCA1", "BRCA2", "NF1", "PTEN", "RB1", "TP53",
@@ -125,7 +125,7 @@ cna_mat_list = list(
 	deletion0=(cna_mat_sub == 0) * 1,
 	deletion1=(cna_mat_sub == 1) * 1,
 	amplification34=(cna_mat_sub > 2 & cna_mat_sub <=4) * 1,
-	amplification5=(cna_mat_sub > 4) * 1
+	amplification6=(cna_mat_sub > 5) * 1
 )
 
 # set missing values to zero
@@ -147,9 +147,9 @@ hla_type = getHlaStatusIndicatorMatrices(tumor_ids, lohhla)
 
 # pdf("plots/oncoprint_extended_list2_v4_manualTP53.pdf", height=3.5, width=10)  # with deletion1
 # pdf("plots/oncoprint_extended_list2_v4_manualTP53.pdf", height=4.5, width=10)  # with deletion1, with column names
-# pdf("plots/oncoprint_extended_list2_v4_manualTP53_MSKCC.pdf", height=4.2, width=10)  # with deletion1, with column names
+pdf("plots/oncoprint_extended_list2_v4_manualTP53_MSKCC.pdf", height=4.2, width=10)  # with deletion1, with column names
 # pdf("plots/oncoprint_extended_list2_v4_manualTP53_MYC.pdf", height=3.5, width=10)  # with deletion1
-pdf("plots/oncoprint_extended_list2_v4_manualTP53_MSKCC_HLA.pdf", height=4.2, width=10)  # with deletion1, with column names, with HLA status
+# pdf("plots/oncoprint_extended_list2_v4_manualTP53_MSKCC_HLA.pdf", height=4.2, width=10)  # with deletion1, with column names, with HLA status
 
 colors=c("black", brewer.pal(8, "Accent"))
 
@@ -157,7 +157,7 @@ box_col = c(
     deletion0=brewer.pal(9, "Set1")[2],
     deletion1=brewer.pal(9, "Blues")[4],
     # amplification34=brewer.pal(9, "Reds")[4],
-    amplification5=brewer.pal(9, "Set1")[1],
+    amplification6=brewer.pal(9, "Set1")[1],
     Missense_Mutation=colors[1],
     Nonsense_Mutation=colors[2],
     Indel_Frameshift=colors[3],
@@ -181,10 +181,10 @@ stopifnot(colnames(cna_mat_list[[1]]) == colnames(mut_type[[1]]))
 
 # CNA + Oncotator mutation calls
 oncoPrint(c(
-    # cna_mat_list[c("deletion0", "amplification5")],
-    cna_mat_list[c("deletion0", "deletion1", "amplification5")],
-    mut_type[c("Missense_Mutation", "Nonsense_Mutation", "Indel_Frameshift", "Indel_Inframe", "germline")],
-    hla_type[c("Allelic_Imbalance", "Loss_of_Heterozygosity")]
+    # cna_mat_list[c("deletion0", "amplification6")],
+    cna_mat_list[c("deletion0", "deletion1", "amplification6")],
+    mut_type[c("Missense_Mutation", "Nonsense_Mutation", "Indel_Frameshift", "Indel_Inframe", "germline")]
+    # hla_type[c("Allelic_Imbalance", "Loss_of_Heterozygosity")]
     ),
     alter_fun = list(
         background = function(...) NULL,  # background box for each tile
@@ -197,9 +197,9 @@ oncoPrint(c(
         # amplification34 = function(x, y, w, h) grid.rect(
         #     x, y, w*0.9, h*0.9, 
         #     gp=gpar(fill=box_col["amplification34"], col=outline_col)),
-        amplification5 = function(x, y, w, h) grid.rect(
+        amplification6 = function(x, y, w, h) grid.rect(
             x, y, w*0.9, h*0.9, 
-            gp=gpar(fill=box_col["amplification5"], col=outline_col)),
+            gp=gpar(fill=box_col["amplification6"], col=outline_col)),
         Missense_Mutation = function(x, y, w, h) grid.rect(
             x, y, w*0.9, h*0.25,
             gp=gpar(fill=box_col["Missense_Mutation"], col=outline_col)),
@@ -223,13 +223,13 @@ oncoPrint(c(
             gp=gpar(fill=box_col["5Flank"], col=outline_col)),
         '3UTR' = function(x, y, w, h) grid.rect(
             x, y - h*0.25, w*0.25, h*0.25,
-            gp=gpar(fill=box_col["3UTR"], col=outline_col)),
-        Allelic_Imbalance = function(x, y, w, h) grid.rect(
-          x, y, w*0.9, h*0.9, 
-          gp=gpar(fill=box_col["Allelic_Imbalance"], col=outline_col)),
-        Loss_of_Heterozygosity = function(x, y, w, h) grid.rect(
-          x, y, w*0.9, h*0.9, 
-          gp=gpar(fill=box_col["Loss_of_Heterozygosity"], col=outline_col))
+            gp=gpar(fill=box_col["3UTR"], col=outline_col))
+        # Allelic_Imbalance = function(x, y, w, h) grid.rect(
+        #   x, y, w*0.9, h*0.9, 
+        #   gp=gpar(fill=box_col["Allelic_Imbalance"], col=outline_col)),
+        # Loss_of_Heterozygosity = function(x, y, w, h) grid.rect(
+        #   x, y, w*0.9, h*0.9, 
+        #   gp=gpar(fill=box_col["Loss_of_Heterozygosity"], col=outline_col))
     ),
     col=box_col,  # legend?
     show_column_names=TRUE,
