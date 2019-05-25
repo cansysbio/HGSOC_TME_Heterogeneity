@@ -5,9 +5,9 @@ library(data.table)
 library(compositions)
 # library(RColorBrewer)
 
-setwd(dirname(rstudioapi::getSourceEditorContext()$path))
-setwd("../")
-#setwd("~/GoogleDrive/projects/cambridge/ovarianCancerHeterogeneityChemo/repo/HGSOC_TME_Heterogeneity/4")
+# setwd(dirname(rstudioapi::getSourceEditorContext()$path))
+# setwd("../")
+setwd("~/GoogleDrive/projects/cambridge/ovarianCancerHeterogeneityChemo/repo/HGSOC_TME_Heterogeneity/4")
 
 source("lib/parse.R")
 source("lib/plots.R")
