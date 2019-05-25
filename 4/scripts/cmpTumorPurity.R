@@ -32,6 +32,10 @@ message("Samples matched: ", sum(!is.na(match(as.character(titan$barcode), conv$
 
 conv_match = conv[match(as.character(titan$barcode), conv$wes_label), ]
 
+# Test if normally distributed
+# plot(density(conv_match$TumorPurity, na.rm=TRUE))
+# shapiro.test(conv_match$TumorPurity)
+# shapiro.test(titan$purity)
 
 pdf("plots/purity_comparison_mRNA_CNA.pdf", height=2.5, width=6)
 
@@ -67,14 +71,27 @@ dev.off()
 # -----------------------
 
 colors = loadPatientColors(titan)
-pts_col = colors[as.integer(titan$patient_id)]
-pts_cex = titan$numClust
 
 
 pdf("plots/bubble_titanCNA_purity_mRNA_immune.pdf", width=4.1, height=4.5)
+
+pts_col = colors[as.integer(titan$patient_id)]
+pts_cex = titan$numClust
+
 x = conv_match$ImmuneScore
 y = titan$purity
+
+n = sum(!is.na(x) & !is.na(y))
+
+# Shapiro-Wilk test for normality
+shapiro.test(x)
+shapiro.test(y)
+
 fit = lm(y~x)
+
+# Breusch-Pagan test of heteroscedisity
+bptest(fit)
+
 cor_test = cor.test(x, y)
 
 plot(x, y,
@@ -100,8 +117,9 @@ points(x, y,
 )
 
 legend("topright", legend=c(
-	paste0("r=", format(cor_test$estimate, digits=3)),
-		paste0("P=", format(cor_test$p.value, digits=3))
+		paste0("r=", format(cor_test$estimate, digits=3)),
+		paste0("P=", format(cor_test$p.value, digits=3)),
+		paste0("n=", n)
 	),
 	bty="n"
 )
