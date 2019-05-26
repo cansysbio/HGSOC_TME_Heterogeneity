@@ -44,13 +44,16 @@ ilr_transformation <- data.frame(ilr_1=as.vector(ilr(acomp(t(cn_sig)), V = c(1, 
                                  ilr_6=as.vector(ilr(acomp(t(cn_sig)), V = c(rep(-1, 5), 1, -1))))
 head(ilr_transformation)
 
-pdf("plots/copyNumberSignaturesCompositional2.pdf", height=2.8)
+pdf("plots/copyNumberSignaturesCompositional3.pdf", height=2.8)
 par(mfrow=c(1, 3))
 for (k in c(1,4,6)) {
   scatterPlot(ilr_transformation[,paste0('ilr_', k)], titan$purity,
-              xlab=paste0("ilr with binary partition\nof (", k, "|",
-                          paste0(which(!(1:7) %in% k),collapse=','), ")"),
-              ylab="Purity (TitanCNA)"
+    xlab=paste0(
+      "ilr with binary partition\nof (", k, "|",
+      paste0(which(!(1:7) %in% k),collapse=','), ")"
+    ),
+    ylab="Purity (TitanCNA)",
+    method="kendal"
   )
 }
 dev.off()

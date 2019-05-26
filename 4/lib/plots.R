@@ -13,6 +13,7 @@ scatterPlot = function(x, y,
 	plot(x, y,
 		pch=pch,
 		col=col,
+		main=method,
 		...)
 
 	legend(corner, legend=c(
@@ -26,7 +27,7 @@ scatterPlot = function(x, y,
 	# Print test
 	fit = lm(y~x)
 
-	# Breusch-Pagan test of heteroscedisity
+	# Breusch-Pagan test of heteroscedasity
 	print(bptest(fit))
 
 	abline(fit, col=col)
@@ -59,7 +60,7 @@ scatterPlotJit = function(x, y,
 
 	fit = lm(y~x)
 
-	# Breusch-Pagan test of heteroscedisity
+	# Breusch-Pagan test of heteroscedasity
 	print(bptest(fit))
 
 	abline(fit, col="black")
@@ -85,6 +86,7 @@ scatterPlotCI = function(x, y, x_ci,
 		# xlim=range(c(0, x), na.rm=TRUE),
 		xlim=c(0, max(x, na.rm=TRUE) * 1.1),
 		type="n",
+		main=method,
 		...)
 
 	# CI segments
@@ -107,7 +109,7 @@ scatterPlotCI = function(x, y, x_ci,
 
 	fit = lm(y~x)
 
-	# Breusch-Pagan test of heteroscedisity
+	# Breusch-Pagan test of heteroscedasity
 	print(bptest(fit))
 
 	abline(fit, col=bg)
