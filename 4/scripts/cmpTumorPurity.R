@@ -48,7 +48,6 @@ scatterPlot(conv_match$TumorPurity, titan$purity,
 	alternative="greater"
 )
 
-
 scatterPlot(conv_match$ImmuneScore, titan$purity,
 	xlab="Immune score",
 	ylab="Tumor purity (TitanCNA)",
@@ -64,16 +63,18 @@ scatterPlot(conv_match$StromalScore, titan$purity,
 	corner="topright",
 	col=colors[3]
 )
+
 dev.off()
 
 
 # Bubble plot for TITAN purity vs ESTIMATE 
 # -----------------------
 
-colors = loadPatientColors(titan)
 
 
 pdf("plots/bubble_titanCNA_purity_mRNA_immune.pdf", width=4.1, height=4.5)
+
+colors = loadPatientColors(titan)
 
 pts_col = colors[as.integer(titan$patient_id)]
 pts_cex = titan$numClust
