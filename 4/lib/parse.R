@@ -227,3 +227,48 @@ getHlaStatusIndicatorMatrices = function(tumor_ids, lohhla) {
   return(hla_matrices)
 }
 
+
+# Input: list of chromosome segments per sample with columns:
+#	Chromosome/chrom,... ('chrx' format), start, end
+# Returns matrix of gene x samples, containing values of specified feature.
+segmentGeneFeatures = function(segs_list, feature) {
+	require(Homo.sapiens)
+
+	# Entrez ID, HGNC gene symbol map
+	gene_map = as.data.frame(org.Hs.egSYMBOL)
+
+	# Load hg19 gene annotations
+	gene_coords = genes(TxDb.Hsapiens.UCSC.hg19.knownGene)
+
+	cna_genes = lapply(1:length(segs_list), function(i) {
+		# Extract genomic ranges from TitanCNA segments
+		cna_coords = makeGRangesFromDataFrame(segs_list[[i]])
+
+		# Annotate each gene range by CNA coordinate range
+		merged_coords = mergeByOverlaps(gene_coords, cna_coords)
+
+		# Append range info
+		idx = match(merged_coords$cna_coords, cna_coords)
+		merged_coords = cbind(merged_coords, segs_list[[i]][idx, ])
+
+		return(merged_coords)
+	})
+
+	gene_ids = unique(unlist(lapply(cna_genes, function(x) x$gene_id)))
+
+	cna_mat = getFeatureMatrix(cna_genes, gene_ids, feature)
+
+	# Name columns by sample IDs
+	colnames(cna_mat) = names(segs_list)
+
+	# Combine counts and annotation into single table
+	annot_cna_mat = cbind(
+		data.frame(
+			entrez_id=rownames(cna_mat),
+			hgnc_symbol=gene_map$symbol[match(rownames(cna_mat), gene_map$gene_id)]
+		),
+		cna_mat
+	)
+
+	return(annot_cna_mat)
+}
