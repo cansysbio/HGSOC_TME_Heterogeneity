@@ -12,8 +12,6 @@ library(sslist)
 library(TitanCNA)
 library(rlist)
 
-# Entrez ID, HGNC gene symbol map
-gene_map = as.data.frame(org.Hs.egSYMBOL)
 
 setwd("~/GoogleDrive/projects/cambridge/ovarianCancerHeterogeneityChemo/repo/HGSOC_TME_Heterogeneity/4")
 
@@ -37,6 +35,7 @@ segs = lapply(1:nrow(opt_clust), function(i) {
 
 # Save list of CNA segments
 save(segs, file="data/segs.RData")
+# load(file="data/segs.RData", verbose=TRUE)
 
 # Split elements by clone
 segs_subclonal = list()
@@ -74,36 +73,6 @@ save(segs_single, file="data/segs_singleClone.RData")
 lapply(segs_single, function(x) table(x$Copy_Number))
 
 # Evaluate copy numbers for all gene intervals
-
-# Load hg19 gene annotations
-gene_coords = genes(TxDb.Hsapiens.UCSC.hg19.knownGene)
-
-
-cna_genes = lapply(1:length(segs_format), function(i) {
-	# Extract genomic ranges from TitanCNA segments
-	cna_coords = makeGRangesFromDataFrame(segs_format[[i]])
-
-	# Annotate each gene range by CNA coordinate range
-	merged_coords = mergeByOverlaps(gene_coords, cna_coords)
-
-	# Append range info
-	idx = match(merged_coords$cna_coords, cna_coords)
-	merged_coords = cbind(merged_coords, segs_format[[i]][idx, ])
-
-	return(merged_coords)
-})
-
-gene_ids = unique(unlist(lapply(cna_genes, function(x) x$gene_id)))
-
-cna_mat = getFeatureMatrix(cna_genes, gene_ids, "Copy_Number")
-
-# Combine counts and annotation into single table
-annot_cna_mat = cbind(
-	data.frame(
-		entrez_id=rownames(cna_mat),
-		hgnc_symbol=gene_map$symbol[match(rownames(cna_mat), gene_map$gene_id)]
-	),
-	cna_mat
-)
+annot_cna_mat = segmentGeneFeatures(segs_format, feature="Copy_Number")
 
 write.csv(annot_cna_mat, file="data/cna.csv", row.names=FALSE)
