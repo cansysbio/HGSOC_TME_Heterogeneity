@@ -1,4 +1,4 @@
-rm(list=ls())
+# rm(list=ls())
 
 library(stringr)
 
@@ -66,7 +66,34 @@ sample_pairs = data.frame(sample_pairs)
 
 write.csv(sample_pairs, file="data/TCGA/sample_pairs.csv")
 
+
+# Use only complete pairs
 sum(complete.cases(sample_pairs))
+
+sample_pairs_compl = sample_pairs[complete.cases(sample_pairs), ]
+
+
+# Write as .yaml sample file for use as input to TITAN
+# -------------------------------------
+yaml_file = "data/TCGA/tcga_samples.yaml"
+
+# File paths of all available samples
+write("samples:",
+	file=yaml_file)
+
+write(
+	paste0("\t", samples$tcga_id, ": ", "/data/memon01/tcga/TCGA-OV/", samples$id, "/", samples$filename),
+	append=TRUE,
+	file=yaml_file)
+
+# Tumor-normal pairs
+write("pairings:",
+	append=TRUE,
+	file=yaml_file)
+write(
+	paste0("\t", sample_pairs_compl$tumor, ": ", sample_pairs_compl$blood),
+	append=TRUE,
+	file=yaml_file)
 
 
 # Some examples
