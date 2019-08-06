@@ -1,5 +1,7 @@
-# rm(list=ls())
+rm(list=ls())
 
+library(stringr)
+library(TCGAutils)
 library(stringr)
 
 setwd("~/GoogleDrive/projects/cambridge/ovarianCancerHeterogeneityChemo/repo/HGSOC_TME_Heterogeneity/4")
@@ -8,26 +10,42 @@ setwd("~/GoogleDrive/projects/cambridge/ovarianCancerHeterogeneityChemo/repo/HGS
 # /data/memon01/tcga/TCGA-OV
 # including the 'manifest.txt' file describing available .bam files
 
-samples = read.table("data/TCGA/manifest.txt",
+samples = read.table(
+	# "data/TCGA/manifest.txt",  # hg38
+	"data/TCGA/gdc_manifest.2019-08-01.txt",  # hg19
 	stringsAsFactors=FALSE,
 	header=TRUE)
+
 # samples$filename
 
+# str_match(samples$filename, "(.*).bam$")[, 2]
+# str_match(samples$filename, ".*(TCGA-.*).bam$")[, 2]
+# UUIDtoBarcode(
+# 	str_match(samples$filename, "(.*).bam$")[, 2],
+# 	legacy=TRUE)
 
-# Parse file names and add to sample table
-file_name_annot = data.frame(
-	str_split_fixed(
-		samples$filename,
-		"[.]",  # separator
-		4),  # number of extracted columns
-	stringsAsFactors=FALSE)
-colnames(file_name_annot) = c("group", "tcga_id", "file_info", "file_ext")  # name columns
+# cbind(samples, filenameToBarcode(samples$filename, legacy=TRUE))
 
-samples = cbind(samples, file_name_annot)
+# Get TCGA barcodes from file names
+samples$tcga_id = filenameToBarcode(samples$filename, legacy=TRUE)[, 3]
+
+
+# # Parse file names and add to sample table
+# # Use only when TCGA barcodes are encoded in the filenames
+# file_name_annot = data.frame(
+# 	str_split_fixed(
+# 		samples$filename,
+# 		"[.]",  # separator
+# 		4),  # number of extracted columns
+# 	stringsAsFactors=FALSE)
+# colnames(file_name_annot) = c("group", "tcga_id", "file_info", "file_ext")  # name columns
+
+# samples = cbind(samples, file_name_annot)
 
 
 # Samples encoding
 # samples$tcga_id
+
 
 # Get codes specififying normal and cancer samples.
 # Names with -01 correspond to primary tumour while those -10 (blood) or -11 (normal tissue) are normal.
@@ -37,6 +55,8 @@ samples$normal_cancer_code = sapply(
 	strsplit(samples$tcga_id, "-"),
 	function(x) x[4])
 
+table(samples$normal_cancer_code)
+
 samples$portion_analyte = sapply(
 	strsplit(samples$tcga_id, "-"),
 	function(x) x[5])
@@ -44,7 +64,8 @@ samples$portion_analyte = sapply(
 samples$analyte = substr(samples$portion_analyte, 3, 4)
 
 
-samples$tcga_patient_id = str_match(samples$tcga_id, "^(TCGA-[0-9]+-[0-9]+)")[, 2]
+# samples$tcga_patient_id = str_match(samples$tcga_id, "^(TCGA-[0-9]+-[0-9]+)")[, 2]
+samples$tcga_patient_id = str_match(samples$tcga_id, "^(TCGA-[:alnum:]+-[:alnum:]+)")[, 2]  # allows letter barcodes
 
 samples$match_group = paste0(samples$tcga_patient_id, "_", samples$analyte)
 
@@ -75,14 +96,16 @@ sample_pairs_compl = sample_pairs[complete.cases(sample_pairs), ]
 
 # Write as .yaml sample file for use as input to TITAN
 # -------------------------------------
-yaml_file = "data/TCGA/tcga_samples.yaml"
+yaml_file = "config/tcga_samples.yaml"
+
+yaml_indent = "  "
 
 # File paths of all available samples
 write("samples:",
 	file=yaml_file)
 
 write(
-	paste0("\t", samples$tcga_id, ": ", "/data/memon01/tcga/TCGA-OV/", samples$id, "/", samples$filename),
+	paste0(yaml_indent, samples$tcga_id, ": ", "/data/memon01/tcga/TCGA-OV-LEGACY/", samples$id, "/", samples$filename),
 	append=TRUE,
 	file=yaml_file)
 
@@ -91,7 +114,7 @@ write("pairings:",
 	append=TRUE,
 	file=yaml_file)
 write(
-	paste0("\t", sample_pairs_compl$tumor, ": ", sample_pairs_compl$blood),
+	paste0(yaml_indent, sample_pairs_compl$tumor, ": ", sample_pairs_compl$blood),
 	append=TRUE,
 	file=yaml_file)
 
