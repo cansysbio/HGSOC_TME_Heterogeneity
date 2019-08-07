@@ -16,6 +16,9 @@ samples = read.table(
 	stringsAsFactors=FALSE,
 	header=TRUE)
 
+
+samples$path = paste0("/data/memon01/tcga/TCGA-OV-LEGACY/", samples$id, "/", samples$filename)
+
 # samples$filename
 
 # str_match(samples$filename, "(.*).bam$")[, 2]
@@ -28,6 +31,8 @@ samples = read.table(
 
 # Get TCGA barcodes from file names
 samples$tcga_id = filenameToBarcode(samples$filename, legacy=TRUE)[, 3]
+
+table(table(samples$tcga_id))
 
 
 # # Parse file names and add to sample table
@@ -70,6 +75,7 @@ samples$tcga_patient_id = str_match(samples$tcga_id, "^(TCGA-[:alnum:]+-[:alnum:
 samples$match_group = paste0(samples$tcga_patient_id, "_", samples$analyte)
 
 
+
 sample_pairs = sapply(unique(samples$match_group), function(group) {
 	idx = samples$match_group == group
 
@@ -85,13 +91,23 @@ sample_pairs = t(sample_pairs)
 colnames(sample_pairs) = c("tumor", "blood")
 sample_pairs = data.frame(sample_pairs)
 
-write.csv(sample_pairs, file="data/TCGA/sample_pairs.csv")
+write.csv(sample_pairs, file="data/TCGA/sample_pairs.csv")  # also contains unmatched TCGA barcodes, for manual inspection
 
 
 # Use only complete pairs
 sum(complete.cases(sample_pairs))
 
+
 sample_pairs_compl = sample_pairs[complete.cases(sample_pairs), ]
+
+included_tcga_ids = as.character(unlist(sample_pairs_compl))
+
+samples_included = samples[match(included_tcga_ids, samples$tcga_id), ]  # picks first if duplicate IDs
+
+sample_pairs_compl$tumor_path = samples$path[match(sample_pairs_compl$tumor, samples$tcga_id)]
+sample_pairs_compl$blood_path = samples$path[match(sample_pairs_compl$blood, samples$tcga_id)]
+
+write.csv(sample_pairs_compl, file="data/TCGA/sample_pairs_compl.csv", row.names=FALSE, quote=FALSE)
 
 
 # Write as .yaml sample file for use as input to TITAN
@@ -105,7 +121,8 @@ write("samples:",
 	file=yaml_file)
 
 write(
-	paste0(yaml_indent, samples$tcga_id, ": ", "/data/memon01/tcga/TCGA-OV-LEGACY/", samples$id, "/", samples$filename),
+	# paste0(yaml_indent, samples$tcga_id, ": ", "/data/memon01/tcga/TCGA-OV-LEGACY/", samples$id, "/", samples$filename),
+	paste0(yaml_indent, samples_included$tcga_id, ": ", "/data/memon01/tcga/TCGA-OV-LEGACY/", samples_included$id, "/", samples_included$filename),
 	append=TRUE,
 	file=yaml_file)
 
@@ -119,11 +136,15 @@ write(
 	file=yaml_file)
 
 
-# Some examples
-samples[samples$tcga_patient_id == "TCGA-04-1331", ]
-samples[samples$tcga_patient_id == "TCGA-13-0757", ]
-samples[samples$tcga_patient_id == "TCGA-04-1335", ]
-samples[samples$tcga_patient_id == "TCGA-10-0937", ]
-samples[samples$tcga_patient_id == "TCGA-10-0931", ]
 
-samples[samples$match_group == "TCGA-10-0936_W", ]
+# # Some examples
+# samples[samples$tcga_id == "TCGA-61-2610-02A-01W-1092-09", ]
+
+# # Some examples
+# samples[samples$tcga_patient_id == "TCGA-04-1331", ]
+# samples[samples$tcga_patient_id == "TCGA-13-0757", ]
+# samples[samples$tcga_patient_id == "TCGA-04-1335", ]
+# samples[samples$tcga_patient_id == "TCGA-10-0937", ]
+# samples[samples$tcga_patient_id == "TCGA-10-0931", ]
+
+# samples[samples$match_group == "TCGA-10-0936_W", ]
