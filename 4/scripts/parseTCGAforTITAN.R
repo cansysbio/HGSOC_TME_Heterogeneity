@@ -19,37 +19,26 @@ samples = read.table(
 
 samples$path = paste0("/data/memon01/tcga/TCGA-OV-LEGACY/", samples$id, "/", samples$filename)
 
-# samples$filename
+write(samples$path, "data/TCGA/sample_paths.txt")  # for
 
-# str_match(samples$filename, "(.*).bam$")[, 2]
-# str_match(samples$filename, ".*(TCGA-.*).bam$")[, 2]
-# UUIDtoBarcode(
-# 	str_match(samples$filename, "(.*).bam$")[, 2],
-# 	legacy=TRUE)
+# Load tests for NCBI ('1') or USCF ('chr1') format
+# From running testChrFormat.sh on list of sample paths, on mmlab cluster
+samples_chrom_format = read.csv("data/TCGA/bamfile_chr_counts.csv")
 
-# cbind(samples, filenameToBarcode(samples$filename, legacy=TRUE))
+stopifnot(samples_chrom_format$path == samples$path)
+
+samples$chrom_counts = samples_chrom_format$chr_count
+
+
+# Exclude USCF chromosome coodinates
+message("Excluding samples with UCSF chromosome coordinates, n=", sum(samples$chrom_counts > 0))
+samples = samples[samples$chrom_counts == 0, ]
+
 
 # Get TCGA barcodes from file names
 samples$tcga_id = filenameToBarcode(samples$filename, legacy=TRUE)[, 3]
 
 table(table(samples$tcga_id))
-
-
-# # Parse file names and add to sample table
-# # Use only when TCGA barcodes are encoded in the filenames
-# file_name_annot = data.frame(
-# 	str_split_fixed(
-# 		samples$filename,
-# 		"[.]",  # separator
-# 		4),  # number of extracted columns
-# 	stringsAsFactors=FALSE)
-# colnames(file_name_annot) = c("group", "tcga_id", "file_info", "file_ext")  # name columns
-
-# samples = cbind(samples, file_name_annot)
-
-
-# Samples encoding
-# samples$tcga_id
 
 
 # Get codes specififying normal and cancer samples.
@@ -110,6 +99,8 @@ sample_pairs_compl$blood_path = samples$path[match(sample_pairs_compl$blood, sam
 write.csv(sample_pairs_compl, file="data/TCGA/sample_pairs_compl.csv", row.names=FALSE, quote=FALSE)
 
 
+write(c(sample_pairs_compl$tumor_path, sample_pairs_compl$blood_path), file="data/TCGA/sample_pairs_paths.txt")
+
 # Write as .yaml sample file for use as input to TITAN
 # -------------------------------------
 yaml_file = "config/tcga_samples.yaml"
@@ -138,7 +129,7 @@ write(
 
 
 # # Some examples
-# samples[samples$tcga_id == "TCGA-61-2610-02A-01W-1092-09", ]
+samples[samples$tcga_id == "TCGA-61-2610-02A-01W-1092-09", ]
 
 # # Some examples
 # samples[samples$tcga_patient_id == "TCGA-04-1331", ]
