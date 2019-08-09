@@ -5,10 +5,10 @@
 cd /data/koplev01/projects/OVCT/TCGA
 
 bam_files='/data/koplev01/projects/OVCT/TCGA/samples/sample_paths.txt'
-output_file='bamfile_chr_counts.csv'
+output_file='bamfile_info.csv'
 
-# Write header
-echo "path,chr_count"  > $output_file  # overwrites
+# Write heade
+echo "path,chr_count,header"  > $output_file  # overwrites
 
 while read path; do
 	echo $path
@@ -16,7 +16,12 @@ while read path; do
 
 	printf "," >> $output_file
 
-	samtools view $path | head -n 10000 | grep -c "chr" >> $output_file
+	samtools view $path | head -n 10000 | grep -c "chr" | tr -d '\n' >> $output_file
+
+	printf "," >> $output_file
+
+	# Get column 4, second line
+	samtools view -H $path | sed -n '2p' | tr -d '\n' >> $output_file  # second line of bam header
 
 	printf "\n" >> $output_file
 

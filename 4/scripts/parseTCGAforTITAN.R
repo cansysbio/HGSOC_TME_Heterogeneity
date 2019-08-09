@@ -23,16 +23,27 @@ write(samples$path, "data/TCGA/sample_paths.txt")  # for
 
 # Load tests for NCBI ('1') or USCF ('chr1') format
 # From running testChrFormat.sh on list of sample paths, on mmlab cluster
-samples_chrom_format = read.csv("data/TCGA/bamfile_chr_counts.csv")
-
-stopifnot(samples_chrom_format$path == samples$path)
-
-samples$chrom_counts = samples_chrom_format$chr_count
+samples_info = read.csv("data/TCGA/bamfile_info.csv")
 
 
-# Exclude USCF chromosome coodinates
-message("Excluding samples with UCSF chromosome coordinates, n=", sum(samples$chrom_counts > 0))
-samples = samples[samples$chrom_counts == 0, ]
+samples_info$reference = str_match(samples_info$header, "AS:(.*?)\\s+")[, 2]
+table(samples_info$reference)
+
+
+
+stopifnot(samples_info$path == samples$path)
+
+samples$chrom_counts = samples_info$chr_count
+
+
+# # Exclude USCF chromosome coodinates
+# message("Excluding samples with UCSF chromosome coordinates, n=", sum(samples$chrom_counts > 0))
+# samples = samples[samples$chrom_counts == 0, ]
+
+# Also excluding non GRCh37 reference genomes...
+idx = samples$chrom_counts == 0 & samples_info$reference %in% c("GRCh37", "GRCh37-lite")
+message("Excluding samples, n=", sum(!idx))
+samples = samples[idx, ]
 
 
 # Get TCGA barcodes from file names
@@ -97,9 +108,14 @@ sample_pairs_compl$tumor_path = samples$path[match(sample_pairs_compl$tumor, sam
 sample_pairs_compl$blood_path = samples$path[match(sample_pairs_compl$blood, samples$tcga_id)]
 
 write.csv(sample_pairs_compl, file="data/TCGA/sample_pairs_compl.csv", row.names=FALSE, quote=FALSE)
+write(
+	c(sample_pairs_compl$tumor_path, sample_pairs_compl$blood_path),
+	file="data/TCGA/sample_pairs_paths.txt")
 
+write(
+	dirname(c(sample_pairs_compl$tumor_path, sample_pairs_compl$blood_path)),
+	file="data/TCGA/sample_pairs_dirs.txt")
 
-write(c(sample_pairs_compl$tumor_path, sample_pairs_compl$blood_path), file="data/TCGA/sample_pairs_paths.txt")
 
 # Write as .yaml sample file for use as input to TITAN
 # -------------------------------------
