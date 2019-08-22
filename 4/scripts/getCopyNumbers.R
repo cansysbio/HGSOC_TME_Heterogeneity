@@ -18,13 +18,15 @@ setwd("~/GoogleDrive/projects/cambridge/ovarianCancerHeterogeneityChemo/repo/HGS
 source("lib/parse.R")
 
 # Results directory from TitanCNA
-results_dir = "/Users/koplev01/mnt/mmlab/projects/OVCT/titanCNA/TitanCNA/scripts/snakemake"
+results_dir = "/Users/koplev01/mnt/mmlab_data/projects/OVCT/titanCNA/TitanCNA/scripts/snakemake"
 
 # Load TitanCNA results table
-opt_clust = loadOptClust(file.path(results_dir, "results/titan/hmm/optimalClusterSolution.txt"))
+opt_clust = loadOptClust(file.path(results_dir, "OVCT_results/titan/hmm/optimalClusterSolution.txt"))
 
 # Load all optimal fits
-d = loadTitanResultsEnv(opt_clust$path, results_dir)
+d = loadTitanResultsEnv(
+	paste0("OVCT_", opt_clust$path),
+	results_dir)
 
 # evaluate segments of copy-number calls from TitanCNA
 segs = lapply(1:nrow(opt_clust), function(i) {
@@ -33,20 +35,35 @@ segs = lapply(1:nrow(opt_clust), function(i) {
 	return(s)
 })
 
+# Calculate non-integer copy numbers
+segs = lapply(segs, function(s) {
+	# Assumes that remaining cancer cells for subclonal calls are diploid
+	s$Copy_Number_Noninteger = s$Cellular_Frequency * s$Copy_Number + 2 * (1 - s$Cellular_Frequency)
+
+	# (Rare) segments without clonal calls, use copy number calls
+	idx = is.na(s$Clonal_Cluster)
+	s$Copy_Number_Noninteger[idx] = s$Copy_Number[idx]
+	message("Calls wihtout subclones: ", sum(idx))
+	return(s)
+})
+
+# Check output
+data.frame(segs[[11]])
+
 # Save list of CNA segments
 save(segs, file="data/segs.RData")
 # load(file="data/segs.RData", verbose=TRUE)
 
-# Split elements by clone
-segs_subclonal = list()
-for (i in 1:length(segs)) {
-	s = segs[[i]]
-	for (j in 1:max(s$Clonal_Cluster, na.rm=TRUE)) {
-		message(j)
-		sub_s = s[s$Clonal_Cluster == j, ]
-		segs_subclonal = list.append(segs_subclonal, sub_s)  # append
-	}
-}
+# # Split elements by clone (INCORRECT)
+# segs_subclonal = list()
+# for (i in 1:length(segs)) {
+# 	s = segs[[i]]
+# 	for (j in 1:max(s$Clonal_Cluster, na.rm=TRUE)) {
+# 		message(j)
+# 		sub_s = s[s$Clonal_Cluster == j, ]
+# 		segs_subclonal = list.append(segs_subclonal, sub_s)  # append
+# 	}
+# }
 
 # Format segments for use with mageGRangesFromDataFrame()
 segs_format = lapply(segs, function(s) {

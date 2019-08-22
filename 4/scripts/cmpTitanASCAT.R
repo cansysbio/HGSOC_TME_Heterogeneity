@@ -26,4 +26,5 @@ scatterPlot(ascat$CCF, titan$purity, xlab="ASCAT purity", ylab="TITAN purity",
 	alternative="greater")
 dev.off()
 
-
+# scatterPlot(ascat$Ploidy, ascat$CCF)
+# cor.test(ascat$Ploidy, ascat$CCF)

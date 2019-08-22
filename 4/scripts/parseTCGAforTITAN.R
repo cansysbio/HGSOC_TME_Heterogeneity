@@ -34,6 +34,7 @@ table(samples_info$reference)
 stopifnot(samples_info$path == samples$path)
 
 samples$chrom_counts = samples_info$chr_count
+samples$reference = samples_info$reference
 
 
 # # Exclude USCF chromosome coodinates
@@ -106,6 +107,10 @@ samples_included = samples[match(included_tcga_ids, samples$tcga_id), ]  # picks
 
 sample_pairs_compl$tumor_path = samples$path[match(sample_pairs_compl$tumor, samples$tcga_id)]
 sample_pairs_compl$blood_path = samples$path[match(sample_pairs_compl$blood, samples$tcga_id)]
+
+sample_pairs_compl$tumor_ref = samples$reference[match(sample_pairs_compl$tumor, samples$tcga_id)]
+sample_pairs_compl$blood_ref = samples$reference[match(sample_pairs_compl$blood, samples$tcga_id)]
+
 
 write.csv(sample_pairs_compl, file="data/TCGA/sample_pairs_compl.csv", row.names=FALSE, quote=FALSE)
 write(
