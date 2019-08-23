@@ -15,12 +15,10 @@ terms = hallmarks$Term
 hallmarks = data.matrix(hallmarks[, -1])
 rownames(hallmarks) = terms
 
+# Load Ki67 IF data
 if_frac = fread("data/Ki67/TableS1_TxNaiveData.csv")
 
-
 if_frac_matched = if_frac[match(colnames(hallmarks), if_frac$RNA_WELL), ]
-
-colnames(hallmarks)
 
 
 pathway = "HALLMARK_G2M_CHECKPOINT"
