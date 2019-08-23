@@ -16,6 +16,10 @@ patient_colors = loadPatientColors(titan)
 
 cn_sig = readRDS("data/miller_cnsignatures.rds")
 
+
+# Fraction of samples with more than 20% exposure by signature
+apply(cn_sig > 0.2, 1, mean)
+
 # Test if tumor labels are aligned
 stopifnot(all(titan$barcode == colnames(cn_sig)))
 

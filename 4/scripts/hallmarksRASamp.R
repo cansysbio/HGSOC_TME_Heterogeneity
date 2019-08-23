@@ -37,6 +37,34 @@ hallmarks_matched = hallmarks[,
 ]
 
 
+# Load Ki67 IF data
+if_frac = fread("data/Ki67/TableS1_TxNaiveData.csv")
+
+# WES labels
+# ---------------------
+# Default when mappings are unavailable
+if_frac$wes_label = paste0(
+	"RG",
+	if_frac$CASE_ID,
+	"-",
+	"T",
+	as.integer(substring(if_frac$TUMOR_WES, 2))  # removes T and pending zeros
+)
+
+# Overwrite WES labels with available mappings through the RNA well column
+if_frac$wes_label_map = expr_samples$wes_label[match(if_frac$RNA_WELL, expr_samples$Well)]
+
+idx = !is.na(if_frac$wes_label_map)
+if_frac$wes_label[idx] = if_frac$wes_label_map[idx]
+
+# Match IF Ki67 data
+if_frac_matched = if_frac[
+	match(
+		gsub("-", "", colnames(cna_mat)),  # removes '-'
+		gsub("-", "", if_frac$wes_label)),
+]
+
+
 # Select association to analyze
 # --------------------------------------
 rownames(hallmarks_matched)
@@ -81,6 +109,47 @@ for (i in 1:length(amp_nes)) {
 	points(
 		jitter(rep(i, length(amp_nes[[i]])), amount=0.2),
 		amp_nes[[i]],
+		pch=21,
+		bg=colors[i]
+	)
+}
+dev.off()
+
+
+# Ki67 vs gene amplification
+# ---------------------------------------
+ki67 = if_frac_matched$Ki67
+amp_idx = cna_mat[which(rownames(cna_mat) == gene), ] > 5
+
+amp_ki67 = list(
+	"-"=ki67[!amp_idx],
+	"+"=ki67[amp_idx]
+)
+
+# Sample sizes
+lapply(amp_ki67, function(x) sum(!is.na(x)))
+sum(!is.na(if_frac$Ki67))
+
+
+t_test = t.test(amp_ki67[[1]], amp_ki67[[2]])
+
+
+pdf(paste0("plots/ssGSEA_copyNumber_", gene, "_Ki67.pdf"), width=2.3, height=5)
+# Boxplot
+bp = boxplot(amp_ki67,
+	frame=FALSE,
+	ylab="Ki67 (% positive cells)",
+	xlab=paste0(gene, " amp. (>5 CN)"),
+	col=rgb(240, 240, 240, maxColorValue=255),
+	main=paste0("P=", format(t_test$p.value, digits=3))
+)
+
+# Jitter points
+colors = c("white", brewer.pal(9, "Set1")[1])
+for (i in 1:length(amp_ki67)) {
+	points(
+		jitter(rep(i, length(amp_ki67[[i]])), amount=0.2),
+		amp_ki67[[i]],
 		pch=21,
 		bg=colors[i]
 	)
