@@ -29,7 +29,7 @@ pdf(paste0("plots/ssGSEA_", pathway, "_Ki67.pdf"), width=4.0, height=4.5)
 scatterPlot(if_frac_matched$Ki67, nes,
 	xlab="Ki67 (% positive cells)",
 	ylab=paste0(pathway, " (NES, mRNA ssGSEA)"),
-	method="spearman",
+	method="kendall",
 	bg=brewer.pal(9, "Pastel1")[1],
 	pch=21)
 dev.off()
