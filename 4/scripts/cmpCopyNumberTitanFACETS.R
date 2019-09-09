@@ -120,3 +120,33 @@ scatterPlot(pca$x[titan_idx, 2], pca$x[facets_idx, 2],
 	ylab="PC2 (FACETS)"
 )
 dev.off()
+
+
+# CNA-mRNA enrichment comparison
+# ---------------------------
+
+enrich_cna_mrna = rbind(
+	read.csv("data/GSEA/CNA_mRNA/GseaPreranked_hallmarks_all_m10000/gsea_report_for_na_pos_1555074277249.csv"),
+	read.csv("data/GSEA/CNA_mRNA/GseaPreranked_hallmarks_all_m10000/gsea_report_for_na_neg_1555074277249.csv")
+)
+
+
+enrich_cna_mrna_facets = rbind(
+	read.csv("data/GSEA/CNA_mRNA_FACETS/my_analysis.GseaPreranked.1562337229186/CNA-mRNA_FACETS_gsea_report_for_na_pos_1562337229186.csv"),
+	read.csv("data/GSEA/CNA_mRNA_FACETS/my_analysis.GseaPreranked.1562337229186/CNA-mRNA_FACETS_gsea_report_for_na_neg_1562337229186.csv")
+)
+
+# Match by term
+enrich_cna_mrna_facets = enrich_cna_mrna_facets[match(enrich_cna_mrna$NAME, enrich_cna_mrna_facets$NAME), ]
+
+stopifnot(enrich_cna_mrna$NAME == enrich_cna_mrna_facets$NAME)
+
+
+pdf("plots/scatter_GSEA_enrich_TITAN_FACETS.pdf", width=5.0, height=5)
+scatterPlot(enrich_cna_mrna$NES, enrich_cna_mrna_facets$NES,
+	xlab="GSEA NES (CNA-mRNA correlation, TITAN)",
+	ylab="GSEA NES (CNA-mRNA correlation, FACETS)",
+	method="kendall"
+)
+dev.off()
+
