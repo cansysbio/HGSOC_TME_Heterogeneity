@@ -34,8 +34,8 @@ hallmark_colors = as.list(hallmark_colors)
 
 # Load CNA count matrix
 # ------------------------------------
-# cna = loadCNA("data/cna.csv")  # TITAN
-cna = loadCNA("data/cna_FACETS.csv")
+cna = loadCNA("data/cna.csv")  # TITAN
+# cna = loadCNA("data/cna_FACETS.csv")
 
 cna_mat = data.matrix(cna[, c(-1, -2)])
 rownames(cna_mat) = cna$hgnc_symbol
@@ -107,15 +107,15 @@ cna_mrna_stats = cna_mrna_stats[order(cna_mrna_stats$r, decreasing=TRUE), ]
 
 # Write signature for running GSEA
 write.table(cna_mrna_stats[, c("gene_symbol", "r")],
-	# "data/GSEA/CNA_mRNA_spearman_rank.rnk",
-	"data/GSEA/CNA_mRNA_spearman_rank_FACETS.rnk",
+	"data/GSEA/CNA_mRNA_spearman_rank.rnk",
+	# "data/GSEA/CNA_mRNA_spearman_rank_FACETS.rnk",
 	quote=FALSE,
 	sep="\t",
 	row.names=FALSE)	
 
 write.csv(cna_mrna_stats,
-	# file="data/corSig/CNA_mRNA_cor_spearman.csv",
-	file="data/corSig/CNA_mRNA_cor_spearman_FACETS.csv",
+	file="data/corSig/CNA_mRNA_cor_spearman.csv",
+	# file="data/corSig/CNA_mRNA_cor_spearman_FACETS.csv",
 	row.names=FALSE)
 
 
@@ -173,8 +173,8 @@ cna_purity_stats = cna_purity_stats[!is.na(cna_purity_stats$r), ]
 cna_purity_stats = cna_purity_stats[order(cna_purity_stats$r, decreasing=TRUE), ]
 
 write.table(cna_purity_stats[, c("gene_symbol", "r")],
-	# "data/GSEA/CNA_purity_spearman_rank.rnk",
-	"data/GSEA/CNA_purity_spearman_rank_FACETS.rnk",
+	"data/GSEA/CNA_purity_spearman_rank.rnk",
+	# "data/GSEA/CNA_purity_spearman_rank_FACETS.rnk",
 	quote=FALSE,
 	sep="\t",
 	row.names=FALSE)	
@@ -211,6 +211,11 @@ write.table(mrna_purity_stats[, c("gene_symbol", "r")],
 	quote=FALSE,
 	sep="\t",
 	row.names=FALSE)	
+
+write.csv(mrna_purity_stats,
+	file="data/corSig/mRNA_purity_cor_spearman.csv",
+	# file="data/corSig/CNA_mRNA_cor_spearman_FACETS.csv",
+	row.names=FALSE)
 
 
 # mRNA-CNA, mRNA-purity scatter
