@@ -78,5 +78,5 @@ write.csv(
 # ---------------------------------
 genes = c("IL23A", "CCL23", "CXCL10", "CXCL9", "CCL4")
 
-cna_mrna_titan[cna_mrna_titan$gene_symbol %in% genes, -2]
+cna_mrna_titan[cna_mrna_titan$gene_symbol %in% genes, c(-2, -5)]
 mrna_purity_titan[mrna_purity_titan$gene_symbol %in% genes, ]

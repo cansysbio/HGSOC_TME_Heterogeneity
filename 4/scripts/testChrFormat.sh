@@ -2,10 +2,23 @@
 # Peeks at first number lines for occurances of 'chr'.
 # run on mmlab server
 
-cd /data/koplev01/projects/OVCT/TCGA
+source activate titan
 
+# Generate list of bam files with absolute paths
 bam_files='/data/koplev01/projects/OVCT/TCGA/samples/sample_paths.txt'
-output_file='bamfile_info.csv'
+
+cd /data/memon01/tcga/TCGA-OV-LEGACY
+find "$PWD" -name "*.bam" > $bam_files
+
+cd /data/memon01/tcga/TCGA-OV-LEGACY-ADD
+find "$PWD" -name "*.bam" >> $bam_files
+
+cd /data/memon01/tcga/TCGA-OV-LEGACY-WITH-WGS
+find "$PWD" -name "*.bam" >> $bam_files
+
+
+cd /data/koplev01/projects/OVCT/TCGA
+output_file='bamfile_info_add_wgs.csv'
 
 # Write heade
 echo "path,chr_count,header"  > $output_file  # overwrites
