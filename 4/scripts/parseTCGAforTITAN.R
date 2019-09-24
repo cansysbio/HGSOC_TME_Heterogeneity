@@ -23,12 +23,20 @@ if (bam_set == "original") {
 		stringsAsFactors=FALSE,
 		header=TRUE)
 
-
 	samples$path = paste0("/data/memon01/tcga/TCGA-OV-LEGACY/", samples$id, "/", samples$filename)
 
 	# write(samples$path, "data/TCGA/sample_paths.txt")  # for
 
 } else if (bam_set == "extended") {
+
+	samples0 = read.table(
+		# "data/TCGA/manifest.txt",  # hg38
+		"data/TCGA/gdc_manifest.2019-08-01.txt",  # hg19
+		stringsAsFactors=FALSE,
+		header=TRUE)
+
+	samples0$path = paste0("/data/memon01/tcga/TCGA-OV-LEGACY/", samples0$id, "/", samples0$filename)
+
 	# ADD
 	samples1 = read.table(
 		"data/TCGA/gdc_manifest.2019-09-13.add.txt",
@@ -45,7 +53,8 @@ if (bam_set == "original") {
 
 	samples2$path = paste0("/data/memon01/tcga/TCGA-OV-LEGACY-WITH-WGS/", samples2$id, "/", samples2$filename)
 
-	samples = rbind(samples1, samples2)
+	samples = rbind(samples0, samples1, samples2)
+	# samples = samples2
 
 } else {
 	stop("Unrecognized bam_set value")
@@ -97,7 +106,8 @@ table(table(samples$tcga_id))
 # Get 4th element of sample ID
 samples$normal_cancer_code = sapply(
 	strsplit(samples$tcga_id, "-"),
-	function(x) x[4])
+	function(x) substr(x[4], 1, 2)  # Excluding vial part, eg 01A
+)
 
 table(samples$normal_cancer_code)
 
@@ -114,19 +124,24 @@ samples$tcga_patient_id = str_match(samples$tcga_id, "^(TCGA-[:alnum:]+-[:alnum:
 samples$match_group = paste0(samples$tcga_patient_id, "_", samples$analyte)
 
 
+samples = samples[order(samples$normal_cancer_code), ]  # blood preference over normal
+
 sample_pairs = sapply(unique(samples$match_group), function(group) {
 	idx = samples$match_group == group
 
-	primary_bam = samples$tcga_id[idx & samples$normal_cancer_code == "01A"][1]  # primary tumor
-	blood_bam = samples$tcga_id[idx & samples$normal_cancer_code == "10A"][1]  # blood
+	primary_bam = samples$tcga_id[idx & samples$normal_cancer_code == "01"][1]  # primary tumor
 
-	file_pair = c(primary_bam,  blood_bam)
+	# normal_bam = samples$tcga_id[idx & samples$normal_cancer_code == "10"][1]  # blood only
+
+	normal_bam = samples$tcga_id[idx & (samples$normal_cancer_code == "10" | samples$normal_cancer_code == "11")][1]  # blood or normal tissue
+
+	file_pair = c(primary_bam,  normal_bam)
 
 	return(file_pair)
 })
 
 sample_pairs = t(sample_pairs)
-colnames(sample_pairs) = c("tumor", "blood")
+colnames(sample_pairs) = c("tumor", "normal")
 sample_pairs = data.frame(sample_pairs)
 
 
@@ -142,10 +157,10 @@ included_tcga_ids = as.character(unlist(sample_pairs_compl))
 samples_included = samples[match(included_tcga_ids, samples$tcga_id), ]  # picks first if duplicate IDs
 
 sample_pairs_compl$tumor_path = samples$path[match(sample_pairs_compl$tumor, samples$tcga_id)]
-sample_pairs_compl$blood_path = samples$path[match(sample_pairs_compl$blood, samples$tcga_id)]
+sample_pairs_compl$blood_path = samples$path[match(sample_pairs_compl$normal, samples$tcga_id)]
 
 sample_pairs_compl$tumor_ref = samples$reference[match(sample_pairs_compl$tumor, samples$tcga_id)]
-sample_pairs_compl$blood_ref = samples$reference[match(sample_pairs_compl$blood, samples$tcga_id)]
+sample_pairs_compl$blood_ref = samples$reference[match(sample_pairs_compl$normal, samples$tcga_id)]
 
 
 if (bam_set == "original") {
@@ -182,7 +197,7 @@ if (bam_set == "original") {
 		append=TRUE,
 		file=yaml_file)
 	write(
-		paste0(yaml_indent, sample_pairs_compl$tumor, ": ", sample_pairs_compl$blood),
+		paste0(yaml_indent, sample_pairs_compl$tumor, ": ", sample_pairs_compl$normal),
 		append=TRUE,
 		file=yaml_file)
 } else if (bam_set == "extended") {
@@ -200,3 +215,6 @@ samples[samples$tcga_id == "TCGA-61-2610-02A-01W-1092-09", ]
 # samples[samples$tcga_patient_id == "TCGA-10-0931", ]
 
 # samples[samples$match_group == "TCGA-10-0936_W", ]
+
+
+# sort(samples$tcga_id)
