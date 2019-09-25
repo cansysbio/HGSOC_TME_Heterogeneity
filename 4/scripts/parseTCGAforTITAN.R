@@ -157,7 +157,7 @@ included_tcga_ids = as.character(unlist(sample_pairs_compl))
 samples_included = samples[match(included_tcga_ids, samples$tcga_id), ]  # picks first if duplicate IDs
 
 sample_pairs_compl$tumor_path = samples$path[match(sample_pairs_compl$tumor, samples$tcga_id)]
-sample_pairs_compl$blood_path = samples$path[match(sample_pairs_compl$normal, samples$tcga_id)]
+sample_pairs_compl$normal_path = samples$path[match(sample_pairs_compl$normal, samples$tcga_id)]
 
 sample_pairs_compl$tumor_ref = samples$reference[match(sample_pairs_compl$tumor, samples$tcga_id)]
 sample_pairs_compl$blood_ref = samples$reference[match(sample_pairs_compl$normal, samples$tcga_id)]
@@ -166,43 +166,47 @@ sample_pairs_compl$blood_ref = samples$reference[match(sample_pairs_compl$normal
 if (bam_set == "original") {
 	write.csv(sample_pairs, file="data/TCGA/sample_pairs.csv")  # also contains unmatched TCGA barcodes, for manual inspection
 
-	write.csv(sample_pairs_compl, file="data/TCGA/sample_pairs_compl.csv", row.names=FALSE, quote=FALSE)
 	write(
-		c(sample_pairs_compl$tumor_path, sample_pairs_compl$blood_path),
+		c(sample_pairs_compl$tumor_path, sample_pairs_compl$normal_path),
 		file="data/TCGA/sample_pairs_paths.txt")
 
 	write(
-		dirname(c(sample_pairs_compl$tumor_path, sample_pairs_compl$blood_path)),
+		dirname(c(sample_pairs_compl$tumor_path, sample_pairs_compl$normal_path)),
 		file="data/TCGA/sample_pairs_dirs.txt")
 
-
-	# Write as .yaml sample file for use as input to TITAN
-	# -------------------------------------
 	yaml_file = "config/tcga_samples.yaml"
-
-	yaml_indent = "  "
-
-	# File paths of all available samples
-	write("samples:",
-		file=yaml_file)
-
-	write(
-		# paste0(yaml_indent, samples$tcga_id, ": ", "/data/memon01/tcga/TCGA-OV-LEGACY/", samples$id, "/", samples$filename),
-		paste0(yaml_indent, samples_included$tcga_id, ": ", "/data/memon01/tcga/TCGA-OV-LEGACY/", samples_included$id, "/", samples_included$filename),
-		append=TRUE,
-		file=yaml_file)
-
-	# Tumor-normal pairs
-	write("pairings:",
-		append=TRUE,
-		file=yaml_file)
-	write(
-		paste0(yaml_indent, sample_pairs_compl$tumor, ": ", sample_pairs_compl$normal),
-		append=TRUE,
-		file=yaml_file)
 } else if (bam_set == "extended") {
-	# TODO
+	write.csv(sample_pairs_compl, file="data/TCGA/sample_pairs_compl_extended.csv", row.names=FALSE, quote=FALSE)
+
+	yaml_file = "config/tcga_samples_extend.yaml"
+} else {
+	stop("bam_set invalid.")
 }
+
+
+# Write as .yaml sample file for use as input to TITAN
+# yaml_file variable is set above
+# -------------------------------------
+
+yaml_indent = "  "
+
+# File paths of all available samples
+write("samples:",
+	file=yaml_file)
+
+write(
+	paste0(yaml_indent, samples_included$tcga_id, ": ", samples_included$path),
+	append=TRUE,
+	file=yaml_file)
+
+# Tumor-normal pairs
+write("pairings:",
+	append=TRUE,
+	file=yaml_file)
+write(
+	paste0(yaml_indent, sample_pairs_compl$tumor, ": ", sample_pairs_compl$normal),
+	append=TRUE,
+	file=yaml_file)
 
 # # Some examples
 samples[samples$tcga_id == "TCGA-61-2610-02A-01W-1092-09", ]
