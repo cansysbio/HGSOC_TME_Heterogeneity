@@ -20,10 +20,21 @@ enrich_cna_purity = rbind(
 	read.csv("data/GSEA/CNA_purity/GseaPreranked_all_m10000/gsea_report_for_na_neg_1548262603112.csv")
 )
 
+# SELECT which mRNA-CNA GSEA analysis to use
+# ---------------------------------
+# TITAN
 enrich_cna_mrna = rbind(
 	read.csv("data/GSEA/CNA_mRNA/GseaPreranked_hallmarks_all_m10000/gsea_report_for_na_pos_1555074277249.csv"),
 	read.csv("data/GSEA/CNA_mRNA/GseaPreranked_hallmarks_all_m10000/gsea_report_for_na_neg_1555074277249.csv")
 )
+
+# # copywriteR
+# enrich_cna_mrna = rbind(
+# 	read.csv("data/GSEA/CNA_mRNA_copywriteR/my_analysis.GseaPreranked.1569425965576/gsea_report_for_na_pos_1569425965576.csv"),
+# 	read.csv("data/GSEA/CNA_mRNA_copywriteR/my_analysis.GseaPreranked.1569425965576/gsea_report_for_na_neg_1569425965576.csv")
+# )
+
+# END SELECT
 
 enrich_mrna_purity = rbind(
 	read.csv("data/GSEA/mRNA_purity/GseaPreranked_hallmarks_all_m10000/gsea_report_for_na_pos_1555074918665.csv"),
@@ -146,6 +157,7 @@ dev.off()
 
 # Enrichment scatterplot, colored by hallmark classification
 pdf("plots/scatter_GSEA_enrich_v3.pdf", width=5, height=6)
+# pdf("plots/scatter_GSEA_enrich_v3_copywriteR-CNA-mRNA.pdf", width=5, height=6)
 i = 1
 j = 2
 
@@ -155,7 +167,9 @@ names(hallmark_colors) = c("RED", "BLUE", "GREEN", "purple", "ORANGE", "YELLOW",
 hallmark_colors = as.list(hallmark_colors)
 
 pt_col = sapply(as.character(enrich_cna_mrna$NAME), function(term) {
+	message(term)
 	group = hallmark_class[[term]]
+	message(group)
 	col = hallmark_colors[[group]]
 	return(col)
 })

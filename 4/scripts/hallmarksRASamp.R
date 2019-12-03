@@ -90,7 +90,11 @@ amp_nes = list(
 	"+"=nes[amp_idx]
 )
 
-t_test = t.test(amp_nes[[1]], amp_nes[[2]])
+test = t.test(amp_nes[[1]], amp_nes[[2]])
+# test = wilcox.test(amp_nes[[1]], amp_nes[[2]])
+
+shapiro.test(amp_nes[[1]])
+shapiro.test(amp_nes[[2]])
 
 
 pdf(paste0("plots/ssGSEA_copyNumber_", gene, "_", pathway, ".pdf"), width=2.3, height=5)
@@ -100,7 +104,7 @@ bp = boxplot(amp_nes,
 	ylab=paste0(pathway, " (NES, mRNA ssGSEA)"),
 	xlab=paste0(gene, " amp. (>5 CN)"),
 	col=rgb(240, 240, 240, maxColorValue=255),
-	main=paste0("P=", format(t_test$p.value, digits=3))
+	main=paste0("P=", format(test$p.value, digits=3))
 )
 
 # Jitter points
