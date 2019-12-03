@@ -16,7 +16,8 @@ source("lib/parse.R")
 results_dir = "/Users/koplev01/mnt/mmlab_data/projects/OVCT/titanCNA/TitanCNA/scripts/snakemake"
 
 # opt_clust = fread("data/titanCNA_optimalClusterSolution_TCGA.txt")
-opt_clust = fread("data/titanCNA_optimalClusterSolution_TCGA30kb.txt")
+# opt_clust = fread("data/titanCNA_optimalClusterSolution_TCGA30kb.txt")
+opt_clust = fread("data/titanCNA_optimalClusterSolution_TCGA30kb_extend.txt")
 
 scatterPlot(opt_clust$ploidy, opt_clust$purity,
 	xlab="Ave. tumor ploidy", ylab="Tumor purity")
@@ -27,10 +28,16 @@ scatterPlot(opt_clust$ploidy, opt_clust$purity,
 # 	paste0("TCGA_", opt_clust$path),  # output folder was manually renamed
 # 	results_dir)
 
-# Load all optimal fits
+# # Load all optimal fits
+# d = loadTitanResultsEnv(
+# 	paste0("TCGA30kb_", opt_clust$path),  # output folder was manually renamed
+# 	results_dir)
+
+
 d = loadTitanResultsEnv(
-	paste0("TCGA30kb_", opt_clust$path),  # output folder was manually renamed
+	paste0("TCGA30kb_extend_", opt_clust$path),  # output folder was manually renamed
 	results_dir)
+
 
 
 # evaluate segments of copy-number calls from TitanCNA
@@ -54,7 +61,8 @@ segs = lapply(segs, function(s) {
 })
 
 # save(segs, file="data/segs_TCGA.RData")
-save(segs, file="data/segs_TCGA30kb.RData")
+# save(segs, file="data/segs_TCGA30kb.RData")
+save(segs, file="data/segs_TCGA30kb_extend.RData")
 
 
 

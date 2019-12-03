@@ -34,8 +34,11 @@ hallmark_colors = as.list(hallmark_colors)
 
 # Load CNA count matrix
 # ------------------------------------
+
+# WARNING: output files are configured by manual comment bellow
 cna = loadCNA("data/cna.csv")  # TITAN
 # cna = loadCNA("data/cna_FACETS.csv")
+# cna = loadCNA("data/cna_copywriteR.csv")
 
 cna_mat = data.matrix(cna[, c(-1, -2)])
 rownames(cna_mat) = cna$hgnc_symbol
@@ -109,6 +112,7 @@ cna_mrna_stats = cna_mrna_stats[order(cna_mrna_stats$r, decreasing=TRUE), ]
 write.table(cna_mrna_stats[, c("gene_symbol", "r")],
 	"data/GSEA/CNA_mRNA_spearman_rank.rnk",
 	# "data/GSEA/CNA_mRNA_spearman_rank_FACETS.rnk",
+	# "data/GSEA/CNA_mRNA_spearman_rank_copywriteR.rnk",
 	quote=FALSE,
 	sep="\t",
 	row.names=FALSE)	
@@ -116,6 +120,7 @@ write.table(cna_mrna_stats[, c("gene_symbol", "r")],
 write.csv(cna_mrna_stats,
 	file="data/corSig/CNA_mRNA_cor_spearman.csv",
 	# file="data/corSig/CNA_mRNA_cor_spearman_FACETS.csv",
+	# file="data/corSig/CNA_mRNA_cor_spearman_copywriteR.csv",
 	row.names=FALSE)
 
 
