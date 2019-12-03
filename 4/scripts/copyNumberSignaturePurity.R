@@ -14,7 +14,8 @@ titan = loadOptClust("data/titanCNA_optimalClusterSolutions.csv", sep=",")
 
 patient_colors = loadPatientColors(titan)
 
-cn_sig = readRDS("data/miller_cnsignatures.rds")
+# cn_sig = readRDS("data/signatureExposure/miller_cnsignatures.rds")  # TITAN signatures
+cn_sig = readRDS("data/signatureExposure/copywriteR_ovct_sigs_20191126.rds")  # copywriteR signatures
 
 
 # Fraction of samples with more than 20% exposure by signature
@@ -39,7 +40,8 @@ for (i in c(1, 6, 4)) {
 dev.off()
 
 # Stacked barplot ordered by purity
-pdf("plots/cn_signature_purity_order.pdf", height=3.5, width=9)
+# pdf("plots/cn_signature_purity_order.pdf", height=3.5, width=9)
+pdf("plots/cn_signature_purity_order_copywriteR.pdf", height=3.5, width=9)
 
 idx = order(titan$purity, decreasing=TRUE)
 
@@ -50,7 +52,8 @@ bp = barplot(cn_sig[, idx],
 	las=2,
 	legend.text=row.names(cn_sig),
 	ylab="Exposure, purity",
-	xlab="Tumours"
+	xlab="Tumours",
+	cex.names=0.8
 )
 
 lines(bp, titan$purity[idx], col=brewer.pal(9, "Set1")[1], lwd=2)
