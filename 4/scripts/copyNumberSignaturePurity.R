@@ -4,6 +4,7 @@ rm(list=ls())
 
 library(data.table)
 library(RColorBrewer)
+library(gmodels)
 
 setwd("~/GoogleDrive/projects/cambridge/ovarianCancerHeterogeneityChemo/repo/HGSOC_TME_Heterogeneity/4")
 
@@ -17,9 +18,18 @@ patient_colors = loadPatientColors(titan)
 # cn_sig = readRDS("data/signatureExposure/miller_cnsignatures.rds")  # TITAN signatures
 cn_sig = readRDS("data/signatureExposure/copywriteR_ovct_sigs_20191126.rds")  # copywriteR signatures
 
-
 # Fraction of samples with more than 20% exposure by signature
 apply(cn_sig > 0.2, 1, mean)
+
+apply(cn_sig > 0.05, 1, mean)
+
+# Mean and confidence intervals 
+apply(cn_sig, 1, ci)
+
+# Fraction of samples with particular highest (maximum) signature
+prop.table(table(apply(cn_sig, 2, which.max)))
+
+cn_sig[, grep("RG4", colnames(cn_sig))]
 
 # Test if tumor labels are aligned
 stopifnot(all(titan$barcode == colnames(cn_sig)))

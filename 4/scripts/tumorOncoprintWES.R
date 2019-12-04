@@ -43,6 +43,8 @@ patient_ids = str_extract(tumor_ids, "^RG([0-9]+)")  # patient ids
 # mut = fread("data/oncotator_maf_ovct_filtered_updated.maf")  # using the padded exome bed file (@Danish)
 mut = fread("data/RG_ALL_WithinPatientSUFAM_updated.csv")  # using the padded exome bed file (@Danish)
 
+# mut[mut$SYMBOL == "BRCA1", ]
+
 # Mutation classes prepended by SNP/DEL/INS...
 #mut$Variant_Code = paste(mut$Variant_Type, mut$Variant_Classification, sep="_")
 
