@@ -31,6 +31,8 @@ prop.table(table(apply(cn_sig, 2, which.max)))
 
 cn_sig[, grep("RG4", colnames(cn_sig))]
 
+cn_sig[, grep("RG6", colnames(cn_sig))]
+
 # Test if tumor labels are aligned
 stopifnot(all(titan$barcode == colnames(cn_sig)))
 
