@@ -75,3 +75,63 @@ points(bp, rep(-0.05, length(bp)),
 	bg=pt_col[idx],
 	xpd=TRUE)
 dev.off()
+
+
+
+# Combination of signatures
+# -----------------------------
+
+cn_above_median = apply(cn_sig, 1, function(exposure) {
+	return(exposure > median(exposure))
+})
+
+
+i = 4
+j = 7
+pdf("plots/cn_signature_purity_comb_boxplot.pdf", height=4.0, width=4)
+idx_comb = cn_above_median[, i] & cn_above_median[, j]  # both high
+idx_ctrl = !cn_above_median[, i] & !cn_above_median[, j]  # both low
+
+idx_i = cn_above_median[, i]  # i high
+idx_j = cn_above_median[, j]  # j high
+
+values = list(
+	"Low s4"=titan$purity[!idx_i],
+	"High s4"=titan$purity[idx_i],
+	"Low s7"=titan$purity[!idx_j],
+	"High s7"=titan$purity[idx_j],
+	"Low s4 and s7"=titan$purity[idx_ctrl],
+	"High s4 and s7"=titan$purity[idx_comb]
+)
+
+t_test1 = t.test(values[[1]], values[[2]]) 
+t_test2 = t.test(values[[3]], values[[4]]) 
+t_test3 = t.test(values[[5]], values[[6]]) 
+
+boxplot(values,
+	ylab="Tumor cellularity",
+	las=2,
+	main=paste0(
+		"P=", format(t_test1$p.value, digits=3),
+		", P=", format(t_test2$p.value, digits=3),
+		", P=", format(t_test3$p.value, digits=3)
+		),
+	frame=FALSE)
+
+colors = c("white",
+	brewer.pal(9, "Set1")[1],
+	"white",
+	brewer.pal(9, "Set1")[2],
+	"white",
+	brewer.pal(9, "Set1")[3]
+)
+
+for (k in 1:length(values)) {
+	points(
+		jitter(rep(k, length(values[[k]])), amount=0.2),
+		values[[k]],
+		bg=colors[k],
+		pch=21
+	)
+}
+dev.off()
