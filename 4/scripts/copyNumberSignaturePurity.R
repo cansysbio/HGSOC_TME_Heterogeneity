@@ -19,7 +19,14 @@ patient_colors = loadPatientColors(titan)
 cn_sig = readRDS("data/signatureExposure/copywriteR_ovct_sigs_20191126.rds")  # copywriteR signatures
 
 
+# Fitler all
+# ---------------------
+# exclude_samples = as.character(read.table("data/QC/QCexclude.txt")[, 1])
 
+# Filter signature data
+# cn_sig = cn_sig[, !colnames(cn_sig) %in% exclude_samples]
+# titan = titan[!titan$barcode %in% exclude_samples, ]
+# --------------------------------------------
 
 # Fraction of samples with more than 20% exposure by signature
 apply(cn_sig > 0.2, 1, mean)
@@ -58,6 +65,7 @@ dev.off()
 # pdf("plots/cn_signature_purity_order.pdf", height=3.5, width=9)
 pdf("plots/cn_signature_purity_order_copywriteR.pdf", height=3.5, width=9)
 
+# pdf("plots/cn_signature_purity_order_copywriteR_QCfilter.pdf", height=3.5, width=9)
 idx = order(titan$purity, decreasing=TRUE)
 
 sig_colors = brewer.pal(8, "Set2")
@@ -323,11 +331,14 @@ dev.off()
 
 # Sample analysis as above filtered for 
 # ----------------------------------------
-included_samples = readRDS("data/QC/ovct_filtered_samples.rds")  # From Geoff MacIntyre
-
 stopifnot(all(titan$barcode == colnames(cn_sig)))
 
-idx_filter = colnames(cn_sig) %in% included_samples
+# included_samples = readRDS("data/QC/ovct_filtered_samples.rds")  # From Geoff MacIntyre
+# idx_filter = colnames(cn_sig) %in% included_samples
+
+
+exclude_samples = as.character(read.table("data/QC/QCexclude.txt")[, 1])
+idx_filter = !colnames(cn_sig) %in% exclude_samples
 
 cn_above_median_filter = apply(cn_sig[, idx_filter], 1, function(exposure) {
 	return(exposure > median(exposure))
