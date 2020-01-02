@@ -23,3 +23,12 @@ filter_matrix_geoff$barcode = rownames(filter_matrix_geoff)
 
 tab = merge(titan_clean, filter_matrix_geoff, by="barcode")
 write.csv(tab, "data/QC/titanCNA_QC.csv", row.names=FALSE)
+
+
+
+tab$QC_manual[is.na(tab$QC_manual)] = TRUE
+
+!tab$facets_titan_disagreement & !tab$under_powered & !tab$titan_bug 
+!tab$facets_titan_disagreement & !tab$under_powered & !tab$titan_bug & tab$QC_manual == TRUE
+
+sum(!tab$facets_titan_disagreement & !tab$under_powered & !tab$titan_bug & tab$QC_manual == TRUE)

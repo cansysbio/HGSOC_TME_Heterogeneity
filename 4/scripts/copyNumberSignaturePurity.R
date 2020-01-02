@@ -329,7 +329,7 @@ dev.off()
 
 
 
-# Sample analysis as above filtered for 
+# Sample analysis as above filtered for QC
 # ----------------------------------------
 stopifnot(all(titan$barcode == colnames(cn_sig)))
 
@@ -380,4 +380,102 @@ values = list(
 )
 boxplotTest(values, ylab="ESTIMATEScore")
 
+dev.off()
+
+
+
+# G2M and KRAS amp associations, filtered signatures
+# -------------------------------------------
+
+boxplotTest1 = function(values, ...) {
+	t_test1 = t.test(values[[1]], values[[2]]) 
+
+	boxplot(values,
+		las=2,
+		main=paste0(
+			"P=", format(t_test1$p.value, digits=3)
+			),
+		frame=FALSE,
+		...
+	)
+
+	colors = c(
+		"white",
+		brewer.pal(9, "Set1")[1]
+	)
+
+	for (k in 1:length(values)) {
+		points(
+			jitter(rep(k, length(values[[k]])), amount=0.2),
+			values[[k]],
+			bg=colors[k],
+			pch=21
+		)
+	}
+}
+
+
+# Load ssGSEA hallmark enrichment results
+# -----------------------------------
+hallmarks = fread("data/HallmarksStromaImmune_NES.txt")
+terms = hallmarks$Term
+hallmarks = data.matrix(hallmarks[, -1])
+rownames(hallmarks) = terms
+
+
+# Sample annotation
+expr_samples = loadSampleAnnot(file_path="data/TreatmentNaive_SampleLabels_WESTumourCellularity_mRNAtumourCellularity_MAPPINGS.csv")
+
+# Match hallmark labels to WES IDs
+colnames(hallmarks) = expr_samples$wes_label[match(colnames(hallmarks), expr_samples$Well)]
+
+hallmarks_match = hallmarks[, match(rownames(cn_above_median_filter), colnames(hallmarks))]
+
+
+
+# Load CNA count matrix
+# --------------------
+cna = loadCNA("data/cna.csv")
+
+cna_mat = data.matrix(cna[, c(-1, -2)])
+rownames(cna_mat) = cna$hgnc_symbol
+
+colnames(cna_mat)[colnames(cna_mat) == "RG13T12"] = "RG13T122"  # Reintroduce typo for consistency with mRNA annotation
+
+
+cna_mat_match = cna_mat[, match(rownames(cn_above_median_filter), colnames(cna_mat))]
+
+
+
+pdf("plots/s1_associations.pdf", width=2.4)
+par(mfrow=c(2, 1))
+# s1 vs G2M enrichment
+# ---------------------
+pathway = "HALLMARK_G2M_CHECKPOINT"
+idx = cn_above_median_filter[, 1]  # s1
+
+# Test if labels are matched
+stopifnot(all(rownames(cn_above_median_filter) == colnames(hallmarks_match), na.rm=TRUE))
+
+values = list(
+	"Low s1"=hallmarks_match[rownames(hallmarks_match) == pathway, !idx],
+	"High s1"=hallmarks_match[rownames(hallmarks_match) == pathway, idx]
+)
+
+boxplotTest1(values, ylab="G2M erichment")
+
+
+# S1 vs KRAS amp
+# ----------------------
+gene = "KRAS"
+idx = cn_above_median_filter[, 1]  # s1
+
+stopifnot(all(rownames(cn_above_median_filter) == colnames(cna_mat_match), na.rm=TRUE))
+
+values = list(
+	"Low s1"=cna_mat_match[rownames(cna_mat_match) == gene, !idx],
+	"High s1"=cna_mat_match[rownames(cna_mat_match) == gene, idx]
+)
+
+boxplotTest1(values, ylab=paste(gene, " copy number"))
 dev.off()
