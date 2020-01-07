@@ -387,7 +387,7 @@ dev.off()
 # G2M and KRAS amp associations, filtered signatures
 # -------------------------------------------
 
-boxplotTest1 = function(values, ...) {
+boxplotTest1 = function(values, colors=NA, ...) {
 	t_test1 = t.test(values[[1]], values[[2]]) 
 
 	boxplot(values,
@@ -399,16 +399,18 @@ boxplotTest1 = function(values, ...) {
 		...
 	)
 
-	colors = c(
-		"white",
-		brewer.pal(9, "Set1")[1]
-	)
+	if (is.na(colors)) {
+		colors = list(
+			"white",
+			brewer.pal(9, "Set1")[1]
+		)
+	}
 
 	for (k in 1:length(values)) {
 		points(
 			jitter(rep(k, length(values[[k]])), amount=0.2),
 			values[[k]],
-			bg=colors[k],
+			bg=colors[[k]],
 			pch=21
 		)
 	}
@@ -442,17 +444,28 @@ rownames(cna_mat) = cna$hgnc_symbol
 
 colnames(cna_mat)[colnames(cna_mat) == "RG13T12"] = "RG13T122"  # Reintroduce typo for consistency with mRNA annotation
 
-
 cna_mat_match = cna_mat[, match(rownames(cn_above_median_filter), colnames(cna_mat))]
+cna_mat_match = data.matrix(cna_mat_match)
 
 
-
-pdf("plots/s1_associations.pdf", width=2.4)
+pdf("plots/s1_associations_v2.pdf", width=2.4)
 par(mfrow=c(2, 1))
 # s1 vs G2M enrichment
 # ---------------------
 pathway = "HALLMARK_G2M_CHECKPOINT"
 idx = cn_above_median_filter[, 1]  # s1
+
+
+# Colors based on KRAS amplification
+pts_col = list(
+	rep("white", sum(!idx)),
+	rep("white", sum(idx))
+)
+
+i = which(rownames(cna_mat_match) == gene)
+pts_col[[1]][cna_mat_match[i, !idx] >= 6] = brewer.pal(9, "Set1")[1]
+pts_col[[2]][cna_mat_match[i, idx] >= 6] = brewer.pal(9, "Set1")[1]
+
 
 # Test if labels are matched
 stopifnot(all(rownames(cn_above_median_filter) == colnames(hallmarks_match), na.rm=TRUE))
@@ -462,7 +475,7 @@ values = list(
 	"High s1"=hallmarks_match[rownames(hallmarks_match) == pathway, idx]
 )
 
-boxplotTest1(values, ylab="G2M erichment")
+boxplotTest1(values, colors=pts_col, ylab="G2M erichment")
 
 
 # S1 vs KRAS amp
@@ -472,9 +485,10 @@ idx = cn_above_median_filter[, 1]  # s1
 
 stopifnot(all(rownames(cn_above_median_filter) == colnames(cna_mat_match), na.rm=TRUE))
 
+i = which(rownames(cna_mat_match) == gene)
 values = list(
-	"Low s1"=cna_mat_match[rownames(cna_mat_match) == gene, !idx],
-	"High s1"=cna_mat_match[rownames(cna_mat_match) == gene, idx]
+	"Low s1"=cna_mat_match[i, !idx],
+	"High s1"=cna_mat_match[i, idx]
 )
 
 boxplotTest1(values, ylab=paste(gene, " copy number"))
