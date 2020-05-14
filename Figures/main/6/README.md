@@ -1,7 +1,7 @@
 ## Chemotherapy-induced enrichment of NK cells is evident in site-matched samples and is supported by preclinical data
 
 <p align="center">
-  <img src="https://github.com/cansysbio/HGSOC_TME_Heterogeneity/blob/Figures/Figures/main/6/OVCT_Fig_m6.png" width="504" height="471%"></div>
+  <img src="https://github.com/cansysbio/HGSOC_TME_Heterogeneity/blob/Figures/Figures/main/6/OVCT_Fig_m6.png" width="100%"></div>
 </p>
 
 <p align="justify">
