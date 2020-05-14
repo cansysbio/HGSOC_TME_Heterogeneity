@@ -1,7 +1,7 @@
 ## Mutation patterns in immune-excluded tumors are associated with Wnt pathway genes and Myc target genes
 
 <p align="center">
-  <img src="https://github.com/cansysbio/HGSOC_TME_Heterogeneity/blob/Figures/Figures/main/4/OVCT_Fig_m4.png" width="504" height="471%"></div>
+  <img src="https://github.com/cansysbio/HGSOC_TME_Heterogeneity/blob/Figures/Figures/main/4/OVCT_Fig_m4.png" width="100%"></div>
 </p>
 
 <p align="justify">
