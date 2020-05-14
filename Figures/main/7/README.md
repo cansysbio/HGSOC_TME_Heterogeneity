@@ -1,7 +1,7 @@
 ## Oligoclonal expansion of T cells and enrichment of shared TCRs after chemotherapy
 
 <p align="center">
-  <img src="https://github.com/cansysbio/HGSOC_TME_Heterogeneity/blob/Figures/Figures/main/7/OVCT_Fig_m7.png" width="900"></div>
+  <img src="https://github.com/cansysbio/HGSOC_TME_Heterogeneity/blob/Figures/Figures/main/7/OVCT_Fig_m7.png" width="100%"></div>
 </p>
 
 <p align="justify">
