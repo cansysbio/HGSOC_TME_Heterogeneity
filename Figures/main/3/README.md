@@ -1,7 +1,7 @@
 ## Unbiased analysis of TME heterogeneity in treatment-naive HGSOC tumors
 
 <p align="center">
-  <img src="https://github.com/cansysbio/HGSOC_TME_Heterogeneity/blob/Figures/Figures/main/3/OVCT_Fig_m3.png" width="100%"></div>
+  <img src="https://github.com/cansysbio/HGSOC_TME_Heterogeneity/blob/Figures/Figures/main/3/OVCT_Fig_m3.png" width="50%"></div>
 </p>
 
 <p align="justify">
