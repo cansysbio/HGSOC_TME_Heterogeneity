@@ -1,7 +1,7 @@
 ## Unbiased signaling pathway and TME cell decomposition analysis of chemotherapy-treated HGSOC tumor samples
 
 <p align="center">
-  <img src="https://github.com/cansysbio/HGSOC_TME_Heterogeneity/blob/Figures/Figures/main/5/OVCT_Fig_m5.png" width="504" height="471%"></div>
+  <img src="https://github.com/cansysbio/HGSOC_TME_Heterogeneity/blob/Figures/Figures/main/5/OVCT_Fig_m5.png" width="100%"></div>
 </p>
 
 <p align="justify">
