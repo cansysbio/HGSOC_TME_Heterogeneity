@@ -1,0 +1,104 @@
+
+
+rm(list=ls())
+
+id.analysis  = "20190417_PCA/1/"
+
+##
+## paths
+##
+if(.id=="dlc"){
+    setwd("~/cruk/redmine/5218")
+    path.data = paste0("data/20190417_PCA/OVCTp_NES_Class_Clinical_data_ajs_REBUTTAL.txt")
+    path.id   = paste0("data/20190417_PCA/TreatmentNaive_SampleLabels_WESTumourCellularity.txt")
+    path.rd   = paste0("rd/",id.analysis)
+}
+
+
+
+
+##
+## import
+##
+
+data0 <- read.table(path.data,row.names='Term',header=T,
+                    sep='\t',stringsAsFactors=FALSE)
+col0 = colnames(data0)[-ncol(data0)]
+row0 = rownames(data0)[-(nrow(data0)-0:1)]
+
+
+# scale data by observation 
+data_pca = t(apply(apply(data0[row0,col0],2,as.numeric),2,scale))
+colnames(data_pca) = row0
+    # .ql(data_pca)
+    
+
+##
+## plot
+##
+
+# boxplots (compared with AJS: OK)
+boxplot(data_pca,col="light gray")
+boxplot(t(data_pca),col="light gray")
+
+
+
+
+##
+## pca (% var explained by method compared with AJS: OK)
+##
+
+# princomp on covmatrix:
+pca1 = princomp(covmat=cov(data_pca))
+summary(pca1)
+# prcomp on data (with n<p)
+pca2 = prcomp(data_pca)
+summary(pca2)
+names(pca2)
+# same results (with sometimes different sign)
+for(pw in 1:nrow(data_pca)){cat("dim",pw,":\t",cor(pca2$rotation[,pw],pca1$loadings[,pw]),"\n")}
+
+
+
+
+##
+## ids
+##
+
+#
+n.obs  = nrow(data_pca)
+id.obs = data.frame(pos=1:n.obs,id=rownames(data_pca),
+             patient = unlist(data0["Case_mRNA",-ncol(data0)]),
+             stringsAsFactors=FALSE)
+
+#
+temp       = table(id.obs$patient)    
+n.patient  = length(temp)
+id.patient = data.frame(pos=1:n.patient,id=names(temp),n=c(temp),
+                        stringsAsFactors=FALSE)
+
+#
+n.var  = ncol(data_pca)
+id.var = data.frame(pos=1:n.var,id=colnames(data_pca),
+                    type=data0[-(nrow(data0)-c(0:1)),ncol(data0)],
+                    stringsAsFactors=FALSE)
+    # all(rownames(data0)[-(nrow(data0)-c(0:1))]==id.var$id)
+
+#
+temp = table(id.var$type)    
+n.type = length(temp)
+id.type = .nf(data.frame(pos=1:n.type,id=names(temp),n=c(temp)))
+
+
+
+
+
+##
+## save
+##
+n = nrow(data_pca)
+p = ncol(data_pca)
+save(data_pca,n.obs,id.obs,n.patient,id.patient,n.var,id.var,n.type,id.type,file=paste0(path.rd,"0-import"))
+
+
+

@@ -1,0 +1,121 @@
+
+rm(list=ls())
+
+id.analysis = "20190417_PCA/1/"
+
+
+# paths
+if(.id=="dlc"){
+    setwd("~/cruk/redmine/5218")
+    path.rd   = paste0("rd/",id.analysis)
+}
+
+
+# load import
+print(load(paste0(path.rd,"0-import")))
+print(load(paste0(path.rd,"1-boot")))
+print(load(paste0(path.rd,"0-import-noscaling")))
+print(load(paste0(path.rd,"1-boot-noscaling")))
+
+# load results
+ar.mean.rtdb = array(NA,dim=c(n.R,n.type,2,n.boot),dimnames=list(1:n.R,id.type$id,paste0("comp.",1:2),id.boot$id))
+for(bw in 1:n.boot){# bw = tw = rw = 3
+    for(rw in 1:n.R){
+        ar.mean.rtdb[rw,,,bw] = apply(as.data.frame(ar.loadings_corr.pcr_boot[[bw]][,1:2,rw]),2,function(x)sapply(split(x,id.var$type),mean)) 
+        }
+   cat(".\n")   
+}              
+
+# for each bootstrap method, CI for loadings for dim 1 and 2
+ar.loadings.2tcb = apply(ar.mean.rtdb[,,,],2:4,quantile,prob=c(.025,.975))
+
+# original estimates
+mx.loadings.t2 = apply(mx.loadings_original.pc,2,function(x){
+                       tapply(x,id.var$type,mean)})
+
+
+###
+### PLOT loadings confidence intervals for dimensions 1 and 2
+###
+
+par(mfrow=c(1,2))
+# dimension 1:
+dimw = 1
+plot(1,1,pch="",xlim=c(1,n.type)+c(-.5,+.5),
+     ylim=max(abs(range(ar.loadings.2tcb)))*c(-1.2,1.2),
+     axes=FALSE,ylab="loadings",xlab="variable type",main="First PCA dimension")
+axis(2,las=2)
+axis(1,1:n.type,id.type$id,cex.axis=.5)
+abline(h=0,col="light gray")    
+for(tw in 1:n.type){
+    for(bw in 1:n.boot){
+        points(rep(tw+c(-.1,0,.1)[bw],n.R),
+                         ar.mean.rtdb[,tw,dimw,bw],
+                         col=paste0(substr(rainbow(n.boot)[bw],1,7),"10"),
+                         pch=".")
+        arrows(tw+c(-.1,0,.1)[bw],ar.loadings.2tcb[1,tw,dimw,bw],
+               tw+c(-.1,0,.1)[bw],ar.loadings.2tcb[2,tw,dimw,bw],
+               angle=90,length=.04,code=3,col=rainbow(n.boot)[bw])       
+        }
+    arrows(tw-.2,mx.loadings.t2[tw,dimw],tw+.2,mx.loadings.t2[tw,dimw],
+           col="orange",code=3,length=0)    
+    }
+legend("top",ncol=n.boot,id.boot$id,lty=rep(1,n.boot),col=rainbow(n.boot))
+# dimension 2:
+dimw = 2
+plot(1,1,pch="",xlim=c(1,n.type)+c(-.5,+.5),
+     ylim=max(abs(range(ar.loadings.2tcb)))*c(-1.2,1.2),
+     axes=FALSE,ylab="loadings",xlab="variable type",main="Second PCA dimension")
+axis(2,las=2)
+axis(1,1:n.type,id.type$id,cex.axis=.5)
+abline(h=0,col="light gray")    
+for(tw in 1:n.type){
+    for(bw in 1:n.boot){
+        points(rep(tw+c(-.1,0,.1)[bw],n.R),
+                         ar.mean.rtdb[,tw,dimw,bw],
+                         col=paste0(substr(rainbow(n.boot)[bw],1,7),"10"),
+                         pch=".")
+        arrows(tw+c(-.1,0,.1)[bw],ar.loadings.2tcb[1,tw,dimw,bw],
+               tw+c(-.1,0,.1)[bw],ar.loadings.2tcb[2,tw,dimw,bw],
+               angle=90,length=.04,code=3,col=rainbow(n.boot)[bw])
+        }
+    arrows(tw-.2,mx.loadings.t2[tw,dimw],tw+.2,mx.loadings.t2[tw,dimw],
+           col="orange",code=3,length=0)    
+    }
+legend("top",ncol=n.boot,id.boot$id,lty=rep(1,n.boot),col=rainbow(n.boot))
+
+###
+### For information, approximate p-values for
+### all pairwise differences for PCA dim 1 and 2
+### for the two-stage bootstrap
+###
+
+bootw = "boot2"
+ar.pval.tt2 = array(NA,dim=c(n.type,n.type,2),
+                    dimnames=list(id.type$id,id.type$id,paste0("PCA",1:2)))
+for(dw in 1:2){
+    for(i in 1:n.type){
+        for(j in i:n.type){
+            # diagonal
+            if(i==j){ar.pval.tt2[i,j,dw] = 1
+            # off-diagonal
+            }else{
+                loadings_i = ar.mean.rtdb[,i,dw,bootw]
+                loadings_j = ar.mean.rtdb[,j,dw,bootw]
+                diff_ij    = loadings_i-loadings_j
+                approxpval = ifelse(mean(diff_ij)>0,mean(diff_ij<0),
+                             mean(diff_ij>0))*2 
+                ar.pval.tt2[i,j,dw] = ar.pval.tt2[j,i,dw] = approxpval
+            }
+            
+            }
+        }
+    }
+ar.pval.tt2
+
+
+
+
+
+
+
