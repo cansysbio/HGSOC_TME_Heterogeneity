@@ -1,0 +1,39 @@
+Well	Label	Key	Case_mRNA	Site	Habitat	Case_WES	Tumour_WES	Colour	Site_marker	TumourCellularity_WES	TumourCellularity_mRNA	mRNA_binary_TumourCellularity
+A01	A01_3640_5_Omentum	case10_omentum_green	10	omentum	green	10.0	5	#ff7f00	^	0.5973	0.7301469644162161	Low
+A02	A02_3640_7_Omentum	case10_omentum_blue	10	omentum	blue	10.0	7	#ff7f00	^	0.5065	0.6735484924162011	Low
+A03	A03_3640_9_Paracolic_Gutter	case10_paracolic_yellow	10	other	yellow	10.0	8	#ff7f00	s	0.4551	0.6649778648541049	Low
+A04	A04_3640_17_R_Adnexa	case10_Radnexa_yellow	10	ovary	yellow	10.0	17	#ff7f00	o	0.6496	0.8339128536295279	High
+A05	A05_3640_18_R_Adnexa	case10_Radnexa_blue	10	ovary	blue	10.0	18	#ff7f00	o	0.6706	0.8012476055642399	High
+A06	A06_3640_19_R_Adnexa	case10_Radnexa_green	10	ovary	green	10.0	19	#ff7f00	o	0.6695	0.8210342223598041	High
+A07	A07_3436_3_Omentum	case6_omentum_blue	6	omentum	blue	6.0	3	#984ea3	^	0.7275	0.9009101798665758	High
+A08	A08_3436_12_Ovary	case6_ovary_yellow	6	ovary	yellow	6.0	12	#984ea3	o	0.7929	0.8672081991361271	High
+A09	A09_3436_13_Ovary	case6_ovary_blue	6	ovary	blue	6.0	13	#984ea3	o	0.7211	0.8927218558107309	High
+A10	A10_3436_15_Ovary	case6_ovary_white	6	ovary	green	6.0	16	#984ea3	o	0.792	0.896008924554297	High
+A11	A11_3387_1_3_Omentum	case1_omentum_blue	1	omentum	blue	1.0	3	#e41a1c	^	0.7017	0.791027125619802	Low
+B01	B01_3387_2_5_Ovary	case1_ovary_blue	1	ovary	blue	1.0	5	#e41a1c	o	0.5246	0.644849811331054	Low
+B02	B02_3387_2_6_Ovary	case1_ovary_yellow	1	ovary	yellow	1.0	6	#e41a1c	o	0.8579	0.9475838319389509	High
+B03	B03_3387_2_7_Ovary	case1_ovary_green	1	ovary	green	1.0	7	#e41a1c	o	0.7423	0.8900868360573492	High
+B04	B04_2839_1_Omentum	case4_omentum_yellow	4	omentum	yellow	4.0	1	#377eb8	^	0.7183	0.9046958985940258	High
+B05	B05_2839_2_Omentum	case4_omentum_blue	4	omentum	blue	4.0	2	#377eb8	^	0.7157	0.8760388874226129	High
+B06	B06_2839_3_Omentum	case4_omentum_green	4	omentum	green	4.0	3	#377eb8	^	0.6561	0.8215417624265391	High
+B07	B07_2839_4_L_ovary_tube_pelvic_side_wall	case4_antNXC_yellow	4	ovary	yellow	4.0	4	#377eb8	o	0.6437	0.70496233548479	Low
+B08	B08_2839_6_L_fallopian_tube	case4_postNXC_blue	4	ovary	blue	4.0	5	#377eb8	o	0.6137	0.7692710761678859	Low
+B09	B09_2489_12_L_Ovary	case5_ovary_blue	5	ovary	blue	5.0	Replicates (12/13)	#4daf4a	o	0.6085	0.820899435231673	High
+B10	B10_2489_14_L_Ovary	case5_ovary_yellow	5	ovary	yellow	5.0	Replicates (14/15)	#4daf4a	o	0.5533	0.793648508226915	High
+B11	B11_2489_16_L_Ovary	case5_ovary_green	5	ovary	green	5.0	Replicates (16/17)	#4daf4a	o	0.5763	0.817112091617465	High
+B12	B12_2489_23_Adnexa	case5_adnexa_yellow	5	other	yellow	5.0	24	#4daf4a	s		0.8054092468984979	High
+C01	C01_7971_10_Omentum	case13_omentum_green	13	omentum	green	13.0	10	#ffff33	^	0.6405	0.7164199240954191	Low
+C02	C02_7971_11_Omentum	case13_omentum_blue	13	omentum	blue	13.0	11	#ffff33	^	0.6084	0.7897942900277389	Low
+C03	C03_7971_12_R_Ovary	case13_Rovary_green	13	ovary	green	13.0	122	#ffff33	o	0.5633	0.717235500653925	Low
+C04	C04_7971_13_R_Ovary	case13_Rovary_blue	13	ovary	blue	13.0	13	#ffff33	o	0.5549	0.7703882743284921	Low
+C05	C05_7971_14_R_Ovary	case13_Rovary_yellow	13	ovary	yellow	13.0	14	#ffff33	o	0.465	0.7847847828009631	Low
+C06	C06_0482_1_L_Ovary	case16_Lovary_blue	16	ovary	blue	16.0	1	#a65628	o	0.6625	0.8004052989597858	High
+C07	C07_0482_3_L_Ovary	case16_Lovary_orange	16	ovary	yellow	16.0	3	#a65628	o	0.6217	0.694818977802103	Low
+C08	C08_0482_4_L_Ovary	case16_Lovary	16	ovary				#a65628	o		0.777020589737838	Low
+C09	C09_0482_5_Pouch_of_Douglas	case16_pofd_blue	16	other	blue	16.0	5	#a65628	s	0.7377	0.7613144426260509	Low
+C10	C10_0482_9_R_Anterior_Psoas	case16_Rantpsoas_orange	16	other	yellow	16.0	9	#a65628	s	0.7359	0.8191991895653901	High
+C11	C11_1860_6_L_Omentum	case17_Lomentum_yellow	17	omentum	yellow	17.0	6	#f781bf	^	0.3932	0.675107639364454	Low
+C12	C12_1860_9_L_Omentum	case17_Lomentum_blue	17	omentum	blue	17.0	9	#f781bf	^	0.4936	0.6449171986955121	Low
+D01	D01_1860_13_Sigmoid_Serosa	case17_sigmoidser_green	17	other	green	17.0	13	#f781bf	s	0.569	0.69846396239433	Low
+D02	D02_1860_14_Sigmoid_Serosa	case17_sigmoidser_blue	17	other	blue	17.0	14	#f781bf	s	0.5998	0.652544272033657	Low
+D03	D03_1860_19_R_Ovary	case17_Rovary_blue	17	ovary	blue	17.0	19	#f781bf	o	0.8009999999999999	0.8708106020282009	High
