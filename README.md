@@ -6,6 +6,10 @@ Analysis of treatment naive and neo-adjuvant chemotherapy treated high-grade ser
 
 ## Software
 
-`!python --version`
+### Python
 
 `Python 3.6.8 :: Anaconda custom (64-bit)`
+
+### R
+
+`R version 3.5.0 (2018-04-23)
