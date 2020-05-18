@@ -1,0 +1,442 @@
+Well	Case	Label	Site	Habitat	IF_index_file	CD8	FoxP3	CD4FoxP3	CD4	Cell_counts
+A01	10	omentum green	omentum	green	23	5216	430	81	2340	41027
+A01	10	omentum green	omentum	green	24	4956	404	47	761	33929
+A01	10	omentum green	omentum	green	25	2485	197	58	1824	20667
+A01	10	omentum green	omentum	green	26	1826	195	52	680	11491
+A01	10	omentum green	omentum	green	27	1961	183	49	892	19348
+A01	10	omentum green	omentum	green	28	498	23	3	356	9281
+A01	10	omentum green	omentum	green	29	1919	130	19	553	11621
+A02	10	omentum blue	omentum	blue	44	293	33	15	335	5307
+A02	10	omentum blue	omentum	blue	45	3014	520	209	2189	34678
+A02	10	omentum blue	omentum	blue	46	3408	315	128	2125	40722
+A02	10	omentum blue	omentum	blue	47	1501	327	170	1521	17640
+A02	10	omentum blue	omentum	blue	48	10835	1011	146	3525	80657
+A02	10	omentum blue	omentum	blue	49	4929	190	42	2046	36848
+A02	10	omentum blue	omentum	blue	50	38	2	2	42	1210
+A03	10	paracolic gutter yellow	other	yellow	2	4437	689	77	1234	88073
+A03	10	paracolic gutter yellow	other	yellow	3	4972	617	164	2692	74359
+A03	10	paracolic gutter yellow	other	yellow	4	2573	256	46	1003	47051
+A03	10	paracolic gutter yellow	other	yellow	5	3376	643	145	1709	62420
+A03	10	paracolic gutter yellow	other	yellow	6	9200	1637	465	6125	90968
+A03	10	paracolic gutter yellow	other	yellow	7	4027	1952	259	3456	72907
+A03	10	paracolic gutter yellow	other	yellow	8	6291	1505	463	5293	46174
+A03	10	paracolic gutter yellow	other	yellow	9	6624	2206	379	5739	79805
+A03	10	paracolic gutter yellow	other	yellow	10	3173	400	145	1900	63929
+A03	10	paracolic gutter yellow	other	yellow	11	3402	304	43	1092	79902
+A03	10	paracolic gutter yellow	other	yellow	12	2403	225	26	601	76669
+A03	10	paracolic gutter yellow	other	yellow	13	764	35	10	192	23719
+A03	10	paracolic gutter yellow	other	yellow	14	1782	118	33	627	58127
+A03	10	paracolic gutter yellow	other	yellow	15	1900	426	160	1293	22300
+A03	10	paracolic gutter yellow	other	yellow	16	1528	108	5	421	32136
+A03	10	paracolic gutter yellow	other	yellow	17	4351	443	98	1729	56750
+A03	10	paracolic gutter yellow	other	yellow	18	4535	636	101	1165	83912
+A04	10	RAY right ovary yellow	ovary	yellow	79	1031	73	17	736	21101
+A04	10	RAY right ovary yellow	ovary	yellow	80	1162	2	0	871	24091
+A04	10	RAY right ovary yellow	ovary	yellow	81	1076	2	0	764	20212
+A04	10	RAY right ovary yellow	ovary	yellow	82	750	62	34	501	14269
+A04	10	RAY right ovary yellow	ovary	yellow	83	1189	71	11	464	19743
+A04	10	RAY right ovary yellow	ovary	yellow	84	914	6	3	458	23583
+A04	10	RAY right ovary yellow	ovary	yellow	85	948	1	0	343	21563
+A04	10	RAY right ovary yellow	ovary	yellow	86	371	15	4	197	22517
+A04	10	RAY right ovary yellow	ovary	yellow	87	148	3	2	98	14358
+A04	10	RAY right ovary yellow	ovary	yellow	88	733	7	4	523	24851
+A04	10	RAY right ovary yellow	ovary	yellow	89	1149	116	50	816	14566
+A04	10	RAY right ovary yellow	ovary	yellow	90	503	87	41	425	19478
+A04	10	RAY right ovary yellow	ovary	yellow	91	1857	8	0	653	30187
+A04	10	RAY right ovary yellow	ovary	yellow	92	1450	197	88	917	23072
+A04	10	RAY right ovary yellow	ovary	yellow	93	1997	55	10	1404	15959
+A04	10	RAY right ovary yellow	ovary	yellow	94	634	30	22	414	7648
+A04	10	RAY right ovary yellow	ovary	yellow	95	183	3	0	83	3137
+A04	10	RAY right ovary yellow	ovary	yellow	67	453	58	18	408	9406
+A05	10	RAB- right ovary central blue	ovary	blue	55	380	0	0	168	18438
+A05	10	RAB- right ovary central blue	ovary	blue	56	193	3	0	62	18506
+A05	10	RAB- right ovary central blue	ovary	blue	57	221	0	0	51	15902
+A05	10	RAB- right ovary central blue	ovary	blue	58	203	0	0	110	15583
+A05	10	RAB- right ovary central blue	ovary	blue	59	123	0	0	24	8901
+A05	10	RAB- right ovary central blue	ovary	blue	60	216	0	0	38	12727
+A05	10	RAB- right ovary central blue	ovary	blue	61	131	0	0	88	13104
+A05	10	RAB- right ovary central blue	ovary	blue	62	290	1	0	72	14921
+A05	10	RAB- right ovary central blue	ovary	blue	63	224	0	0	119	10093
+A05	10	RAB- right ovary central blue	ovary	blue	64	155	2	1	52	5114
+A05	10	RAB- right ovary central blue	ovary	blue	65	340	2	0	316	12243
+A05	10	RAB- right ovary central blue	ovary	blue	66	81	0	0	90	3296
+A05	10	RAB- right ovary central blue	ovary	blue	68	302	0	0	77	14509
+A05	10	RAB- right ovary central blue	ovary	blue	69	124	1	0	82	7452
+A05	10	RAB- right ovary central blue	ovary	blue	70	244	147	1	130	13850
+A05	10	RAB- right ovary central blue	ovary	blue	71	279	0	0	95	11771
+A05	10	RAB- right ovary central blue	ovary	blue	72	277	0	0	186	14193
+A05	10	RAB- right ovary central blue	ovary	blue	73	203	0	0	113	13282
+A05	10	RAB- right ovary central blue	ovary	blue	74	262	0	0	90	13188
+A06	10	RAG- right ovary inf	ovary	green	34	1582	145	68	1114	25050
+A06	10	RAG- right ovary inf	ovary	green	35	1048	29	5	412	21516
+A06	10	RAG- right ovary inf	ovary	green	36	352	31	10	158	7823
+A06	10	RAG- right ovary inf	ovary	green	37	1754	258	129	2123	18436
+A06	10	RAG- right ovary inf	ovary	green	38	145	12	3	85	1573
+A06	10	RAG- right ovary inf	ovary	green	39	68	0	0	62	8013
+A07	6	omentum blue ovary white	omentum	blue	37	703	205	103	1055	35553
+A07	6	omentum blue ovary white	omentum	blue	38	1968	425	219	2968	44983
+A07	6	omentum blue ovary white	omentum	blue	39	174	142	84	518	55903
+A07	6	omentum blue ovary white	omentum	blue	40	1075	544	297	2186	65756
+A07	6	omentum blue ovary white	omentum	blue	41	167	103	48	349	41833
+A07	6	omentum blue ovary white	omentum	blue	42	114	63	28	163	30479
+A07	6	omentum blue ovary white	omentum	blue	43	1522	498	200	2377	56885
+A07	6	omentum blue ovary white	omentum	blue	44	145	207	90	507	23182
+A07	6	omentum blue ovary white	omentum	blue	45	55	25	7	57	7862
+A07	6	omentum blue ovary white	omentum	blue	46	19	5	2	41	9139
+A07	6	omentum blue ovary white	omentum	blue	47	257	158	47	1121	13923
+A07	6	omentum blue ovary white	omentum	blue	48	963	1559	548	2393	42530
+A07	6	omentum blue ovary white	omentum	blue	49	1890	2078	540	3963	76181
+A07	6	omentum blue ovary white	omentum	blue	50	487	166	72	1326	12924
+A07	6	omentum blue ovary white	omentum	blue	51	891	436	210	1608	56875
+A07	6	omentum blue ovary white	omentum	blue	52	717	419	193	1721	58003
+A07	6	omentum blue ovary white	omentum	blue	53	1596	429	191	2199	64049
+A08	6	ovary blue ovary yellow pouch yellow	ovary	yellow	21	1262	226	149	2636	27431
+A08	6	ovary blue ovary yellow pouch yellow	ovary	yellow	22	1922	233	130	3417	59178
+A09	6	ovary blue ovary yellow pouch yellow	ovary	blue	3	150	28	21	903	13538
+A09	6	ovary blue ovary yellow pouch yellow	ovary	blue	4	18	1	1	273	10061
+A09	6	ovary blue ovary yellow pouch yellow	ovary	blue	5	65	10	5	1127	25370
+A09	6	ovary blue ovary yellow pouch yellow	ovary	blue	6	360	67	34	2469	52191
+A09	6	ovary blue ovary yellow pouch yellow	ovary	blue	7	341	63	29	2160	57626
+A09	6	ovary blue ovary yellow pouch yellow	ovary	blue	8	68	12	7	491	8236
+A09	6	ovary blue ovary yellow pouch yellow	ovary	blue	9	56	11	6	336	10867
+A09	6	ovary blue ovary yellow pouch yellow	ovary	blue	10	40	3	3	1034	5288
+A09	6	ovary blue ovary yellow pouch yellow	ovary	blue	11	87	17	12	413	4904
+A09	6	ovary blue ovary yellow pouch yellow	ovary	blue	12	212	29	20	2978	57810
+A09	6	ovary blue ovary yellow pouch yellow	ovary	blue	13	217	63	35	2969	64624
+A09	6	ovary blue ovary yellow pouch yellow	ovary	blue	14	120	15	12	800	25552
+A09	6	ovary blue ovary yellow pouch yellow	ovary	blue	15	283	46	34	1952	38103
+A09	6	ovary blue ovary yellow pouch yellow	ovary	blue	16	267	37	22	1609	46472
+A10	6	omentum blue ovary white	ovary	green	58	552	119	62	2113	66092
+A10	6	omentum blue ovary white	ovary	green	59	637	120	57	2361	110299
+A10	6	omentum blue ovary white	ovary	green	60	259	463	108	749	77027
+A10	6	omentum blue ovary white	ovary	green	61	449	371	41	954	54856
+A10	6	omentum blue ovary white	ovary	green	62	512	65	45	1997	79548
+A10	6	omentum blue ovary white	ovary	green	63	92	12	4	1291	57402
+A10	6	omentum blue ovary white	ovary	green	64	441	46	26	1204	66507
+A10	6	omentum blue ovary white	ovary	green	65	278	55	24	1167	23474
+A10	6	omentum blue ovary white	ovary	green	66	29	3	1	108	40662
+A10	6	omentum blue ovary white	ovary	green	67	97	6	4	327	47610
+A10	6	omentum blue ovary white	ovary	green	68	72	15	7	314	27003
+A10	6	omentum blue ovary white	ovary	green	69	29	4	0	173	13571
+A10	6	omentum blue ovary white	ovary	green	70	201	35	24	834	34990
+A11	1	1_1Omentum; 1_4 Yellow	omentum	blue	20	1383	560	215	2238	71087
+A11	1	1_1Omentum; 1_4 Yellow	omentum	blue	21	849	305	139	1634	20818
+A11	1	1_1Omentum; 1_4 Yellow	omentum	blue	22	584	267	114	1314	25379
+A11	1	1_1Omentum; 1_4 Yellow	omentum	blue	23	2501	1231	256	2091	96379
+A11	1	1_1Omentum; 1_4 Yellow	omentum	blue	24	953	518	94	871	52920
+A11	1	1_1Omentum; 1_4 Yellow	omentum	blue	25	258	169	35	265	26670
+A11	1	1_1Omentum; 1_4 Yellow	omentum	blue	26	2622	899	245	3041	56650
+A11	1	1_1Omentum; 1_4 Yellow	omentum	blue	27	2262	1132	248	2048	58600
+A11	1	1_1Omentum; 1_4 Yellow	omentum	blue	28	894	515	219	1685	44487
+A11	1	1_1Omentum; 1_4 Yellow	omentum	blue	29	911	448	218	1871	40102
+A11	1	1_1Omentum; 1_4 Yellow	omentum	blue	30	3515	1042	331	4850	48934
+A11	1	1_1Omentum; 1_4 Yellow	omentum	blue	31	1283	618	141	1116	43096
+A11	1	1_1Omentum; 1_4 Yellow	omentum	blue	32	1924	925	387	4464	60110
+A11	1	1_1Omentum; 1_4 Yellow	omentum	blue	33	576	220	97	1129	24901
+A11	1	1_1Omentum; 1_4 Yellow	omentum	blue	34	3225	948	379	5209	53083
+A11	1	1_1Omentum; 1_4 Yellow	omentum	blue	35	1120	416	138	1601	35904
+B01	1	1_2 Blue primary tumor	ovary	blue	40	3312	648	73	2509	44154
+B01	1	1_2 Blue primary tumor	ovary	blue	41	4262	914	143	4046	56004
+B01	1	1_2 Blue primary tumor	ovary	blue	42	2452	550	70	2141	35031
+B01	1	1_2 Blue primary tumor	ovary	blue	43	2362	437	59	1857	27939
+B01	1	1_2 Blue primary tumor	ovary	blue	44	1563	354	60	1281	21789
+B01	1	1_2 Blue primary tumor	ovary	blue	45	755	273	97	1845	9224
+B01	1	1_2 Blue primary tumor	ovary	blue	46	4176	1013	261	4077	47315
+B01	1	1_2 Blue primary tumor	ovary	blue	47	2573	1065	318	3885	45273
+B01	1	1_2 Blue primary tumor	ovary	blue	48	2177	1122	266	3671	41208
+B01	1	1_2 Blue primary tumor	ovary	blue	49	3866	1515	496	6158	44982
+B01	1	1_2 Blue primary tumor	ovary	blue	50	4349	1080	291	8459	53005
+B01	1	1_2 Blue primary tumor	ovary	blue	51	7151	2320	825	15803	72136
+B01	1	1_2 Blue primary tumor	ovary	blue	52	4070	1681	537	9579	51168
+B01	1	1_2 Blue primary tumor	ovary	blue	53	1151	313	160	4408	12684
+B01	1	1_2 Blue primary tumor	ovary	blue	54	4491	1304	343	6625	72364
+B01	1	1_2 Blue primary tumor	ovary	blue	55	3224	647	121	3343	41236
+B01	1	1_2 Blue primary tumor	ovary	blue	56	1592	745	104	2178	39783
+B01	1	1_2 Blue primary tumor	ovary	blue	57	5244	1737	456	9934	62326
+B01	1	1_2 Blue primary tumor	ovary	blue	58	4261	1735	537	7250	49814
+B01	1	1_2 Blue primary tumor	ovary	blue	59	3830	1294	174	2600	47815
+B01	1	1_2 Blue primary tumor	ovary	blue	60	2346	615	47	1371	37609
+B01	1	1_2 Blue primary tumor	ovary	blue	61	4139	945	165	4068	47539
+B01	1	1_2 Blue primary tumor	ovary	blue	62	3844	1260	110	2772	53037
+B02	1	1_1Omentum; 1_4 Yellow	ovary	yellow	4	1067	199	79	2223	42670
+B02	1	1_1Omentum; 1_4 Yellow	ovary	yellow	5	139	35	18	221	25802
+B02	1	1_1Omentum; 1_4 Yellow	ovary	yellow	6	45	19	4	113	35375
+B02	1	1_1Omentum; 1_4 Yellow	ovary	yellow	7	389	109	36	735	21891
+B02	1	1_1Omentum; 1_4 Yellow	ovary	yellow	8	287	64	27	608	26524
+B02	1	1_1Omentum; 1_4 Yellow	ovary	yellow	9	142	67	22	280	63309
+B02	1	1_1Omentum; 1_4 Yellow	ovary	yellow	10	684	183	51	1168	90028
+B02	1	1_1Omentum; 1_4 Yellow	ovary	yellow	11	180	45	16	399	16829
+B02	1	1_1Omentum; 1_4 Yellow	ovary	yellow	12	178	90	29	312	64378
+B02	1	1_1Omentum; 1_4 Yellow	ovary	yellow	13	1972	386	103	2770	89899
+B02	1	1_1Omentum; 1_4 Yellow	ovary	yellow	14	1232	253	88	2390	75654
+B02	1	1_1Omentum; 1_4 Yellow	ovary	yellow	15	689	117	40	1061	45160
+B03	1	1_3 Green primary tumor (middle)	ovary	green	67	319	58	7	761	79509
+B03	1	1_3 Green primary tumor (middle)	ovary	green	68	1289	244	70	2347	71693
+B03	1	1_3 Green primary tumor (middle)	ovary	green	69	6315	1141	609	16511	78988
+B03	1	1_3 Green primary tumor (middle)	ovary	green	70	446	74	22	1050	63142
+B03	1	1_3 Green primary tumor (middle)	ovary	green	71	153	24	8	501	39133
+B03	1	1_3 Green primary tumor (middle)	ovary	green	72	1744	336	144	3460	81839
+B03	1	1_3 Green primary tumor (middle)	ovary	green	73	5233	863	420	10886	71545
+B03	1	1_3 Green primary tumor (middle)	ovary	green	74	440	84	33	1186	72441
+B03	1	1_3 Green primary tumor (middle)	ovary	green	75	654	101	29	1715	62107
+B03	1	1_3 Green primary tumor (middle)	ovary	green	76	2253	460	273	5853	46390
+B03	1	1_3 Green primary tumor (middle)	ovary	green	77	385	108	56	1237	39813
+B03	1	1_3 Green primary tumor (middle)	ovary	green	78	96	11	4	179	25311
+B03	1	1_3 Green primary tumor (middle)	ovary	green	79	232	75	34	473	40595
+B03	1	1_3 Green primary tumor (middle)	ovary	green	80	158	20	4	322	39880
+B03	1	1_3 Green primary tumor (middle)	ovary	green	81	156	28	9	205	37655
+B03	1	1_3 Green primary tumor (middle)	ovary	green	82	1409	272	130	2598	48448
+B03	1	1_3 Green primary tumor (middle)	ovary	green	83	680	138	54	1316	91787
+B04	4	Omentum Yellow Omentum Green	omentum	yellow	55	400	21	5	378	13262
+B04	4	Omentum Yellow Omentum Green	omentum	yellow	56	125	8	1	193	5205
+B04	4	Omentum Yellow Omentum Green	omentum	yellow	57	161	27	7	135	2899
+B04	4	Omentum Yellow Omentum Green	omentum	yellow	58	84	18	4	15	3287
+B04	4	Omentum Yellow Omentum Green	omentum	yellow	59	203	4	1	210	3873
+B04	4	Omentum Yellow Omentum Green	omentum	yellow	60	25	1	0	13	391
+B04	4	Omentum Yellow Omentum Green	omentum	yellow	61	28	1	0	64	1010
+B04	4	Omentum Yellow Omentum Green	omentum	yellow	62	28	1	0	4	1765
+B04	4	Omentum Yellow Omentum Green	omentum	yellow	63	31	3	1	11	952
+B04	4	Omentum Yellow Omentum Green	omentum	yellow	64	42	10	4	22	1537
+B04	4	Omentum Yellow Omentum Green	omentum	yellow	65	59	9	5	15	1205
+B04	4	Omentum Yellow Omentum Green	omentum	yellow	66	18	19	5	6	898
+B04	4	Omentum Yellow Omentum Green	omentum	yellow	67	39	2	0	51	1259
+B04	4	Omentum Yellow Omentum Green	omentum	yellow	68	104	24	11	59	4300
+B04	4	Omentum Yellow Omentum Green	omentum	yellow	69	74	23	6	78	4021
+B04	4	Omentum Yellow Omentum Green	omentum	yellow	70	29	26	8	36	2665
+B04	4	Omentum Yellow Omentum Green	omentum	yellow	71	31	15	3	36	2586
+B04	4	Omentum Yellow Omentum Green	omentum	yellow	72	103	50	14	81	3205
+B04	4	Omentum Yellow Omentum Green	omentum	yellow	73	189	5	0	117	10266
+B05	4	ant nxc Yellow Post nxc blue	omentum	blue	45	146	11	5	106	9135
+B05	4	ant nxc Yellow Post nxc blue	omentum	blue	46	562	43	18	464	27526
+B05	4	ant nxc Yellow Post nxc blue	omentum	blue	47	722	69	26	648	31413
+B05	4	ant nxc Yellow Post nxc blue	omentum	blue	48	344	88	28	281	17656
+B05	4	ant nxc Yellow Post nxc blue	omentum	blue	49	152	27	9	59	7144
+B05	4	ant nxc Yellow Post nxc blue	omentum	blue	50	86	9	1	62	3788
+B06	4	Omentum Yellow Omentum Green	omentum	green	78	247	24	3	78	33137
+B06	4	Omentum Yellow Omentum Green	omentum	green	79	761	79	31	333	60998
+B06	4	Omentum Yellow Omentum Green	omentum	green	80	223	402	179	255	14628
+B07	4	ant nxc Yellow Post nxc blue	ovary	yellow	3	1556	278	131	2061	50642
+B07	4	ant nxc Yellow Post nxc blue	ovary	yellow	4	1547	259	127	1891	46958
+B07	4	ant nxc Yellow Post nxc blue	ovary	yellow	5	1731	311	181	1555	57261
+B07	4	ant nxc Yellow Post nxc blue	ovary	yellow	6	1004	148	87	1167	23642
+B07	4	ant nxc Yellow Post nxc blue	ovary	yellow	7	1127	189	97	1815	31855
+B07	4	ant nxc Yellow Post nxc blue	ovary	yellow	8	2450	381	238	3503	72246
+B07	4	ant nxc Yellow Post nxc blue	ovary	yellow	9	1380	75	55	2100	23988
+B07	4	ant nxc Yellow Post nxc blue	ovary	yellow	10	2566	417	254	4286	73674
+B07	4	ant nxc Yellow Post nxc blue	ovary	yellow	11	441	69	51	1904	15815
+B07	4	ant nxc Yellow Post nxc blue	ovary	yellow	12	888	19	15	1411	10630
+B07	4	ant nxc Yellow Post nxc blue	ovary	yellow	13	1345	221	105	1266	55778
+B07	4	ant nxc Yellow Post nxc blue	ovary	yellow	14	1280	182	85	1055	53844
+B07	4	ant nxc Yellow Post nxc blue	ovary	yellow	15	1458	338	128	1332	48628
+B07	4	ant nxc Yellow Post nxc blue	ovary	yellow	16	1027	157	72	980	21781
+B07	4	ant nxc Yellow Post nxc blue	ovary	yellow	17	1307	234	124	1089	48062
+B07	4	ant nxc Yellow Post nxc blue	ovary	yellow	18	1214	181	82	1245	45962
+B07	4	ant nxc Yellow Post nxc blue	ovary	yellow	19	2530	537	249	2335	77550
+B08	4	ant nxc Yellow Post nxc blue	ovary	blue	24	294	45	18	586	7695
+B08	4	ant nxc Yellow Post nxc blue	ovary	blue	25	314	48	23	500	6041
+B08	4	ant nxc Yellow Post nxc blue	ovary	blue	26	283	42	19	380	4446
+B08	4	ant nxc Yellow Post nxc blue	ovary	blue	27	218	24	10	276	3009
+B08	4	ant nxc Yellow Post nxc blue	ovary	blue	28	123	27	8	212	3078
+B08	4	ant nxc Yellow Post nxc blue	ovary	blue	29	152	22	7	206	2202
+B08	4	ant nxc Yellow Post nxc blue	ovary	blue	30	66	10	7	173	1415
+B08	4	ant nxc Yellow Post nxc blue	ovary	blue	31	27	2	2	37	735
+B08	4	ant nxc Yellow Post nxc blue	ovary	blue	32	1171	62	24	2353	9067
+B08	4	ant nxc Yellow Post nxc blue	ovary	blue	33	1499	265	151	1192	49864
+B08	4	ant nxc Yellow Post nxc blue	ovary	blue	34	1068	48	36	2273	9122
+B08	4	ant nxc Yellow Post nxc blue	ovary	blue	35	603	40	32	889	7224
+B08	4	ant nxc Yellow Post nxc blue	ovary	blue	36	537	19	15	502	6204
+B08	4	ant nxc Yellow Post nxc blue	ovary	blue	37	448	8	6	301	5027
+B08	4	ant nxc Yellow Post nxc blue	ovary	blue	38	495	12	11	332	4998
+B08	4	ant nxc Yellow Post nxc blue	ovary	blue	39	743	14	11	884	5677
+B08	4	ant nxc Yellow Post nxc blue	ovary	blue	40	551	12	7	821	3688
+B09	5	ovary yellow ovary blue	ovary	blue	72	577	33	15	579	93725
+B10	5	ovary yellow ovary blue	ovary	yellow	2	819	104	71	3536	78155
+B10	5	ovary yellow ovary blue	ovary	yellow	3	358	26	15	1137	57512
+B10	5	ovary yellow ovary blue	ovary	yellow	4	1454	116	74	2978	78867
+B10	5	ovary yellow ovary blue	ovary	yellow	5	1637	119	89	5575	106153
+B10	5	ovary yellow ovary blue	ovary	yellow	6	66	6	1	211	37728
+B10	5	ovary yellow ovary blue	ovary	yellow	7	890	66	39	1472	43286
+B10	5	ovary yellow ovary blue	ovary	yellow	8	1108	100	61	3231	70972
+B10	5	ovary yellow ovary blue	ovary	yellow	9	707	160	104	2607	35623
+B10	5	ovary yellow ovary blue	ovary	yellow	10	1398	68	53	5175	56310
+B10	5	ovary yellow ovary blue	ovary	yellow	11	734	66	46	2529	59067
+B10	5	ovary yellow ovary blue	ovary	yellow	12	2634	81	58	4099	75781
+B10	5	ovary yellow ovary blue	ovary	yellow	13	2195	196	143	6307	71824
+B10	5	ovary yellow ovary blue	ovary	yellow	14	1107	110	73	2111	43386
+B10	5	ovary yellow ovary blue	ovary	yellow	15	1779	256	151	2838	50736
+B10	5	ovary yellow ovary blue	ovary	yellow	16	1079	140	100	3242	45526
+B10	5	ovary yellow ovary blue	ovary	yellow	17	422	80	60	2323	38489
+B10	5	ovary yellow ovary blue	ovary	yellow	18	191	17	6	604	50849
+B10	5	ovary yellow ovary blue	ovary	yellow	19	136	17	8	405	56699
+B11	5	ovary green cul de sac blue adnexa yellow	ovary	green	52	2009	353	161	3906	74332
+B12	5	ovary green cul de sac blue adnexa yellow	other	yellow	24	1131	199	69	1691	79300
+B12	5	ovary green cul de sac blue adnexa yellow	other	yellow	25	471	84	28	776	31827
+B12	5	ovary green cul de sac blue adnexa yellow	other	yellow	26	566	93	52	1364	83672
+B12	5	ovary green cul de sac blue adnexa yellow	other	yellow	27	392	61	32	860	91970
+B12	5	ovary green cul de sac blue adnexa yellow	other	yellow	28	3131	403	220	4965	53325
+B12	5	ovary green cul de sac blue adnexa yellow	other	yellow	29	715	136	84	1759	80386
+B12	5	ovary green cul de sac blue adnexa yellow	other	yellow	30	1263	195	116	2704	88247
+B12	5	ovary green cul de sac blue adnexa yellow	other	yellow	31	1294	246	140	2539	45112
+B12	5	ovary green cul de sac blue adnexa yellow	other	yellow	32	1394	199	77	2181	54082
+B12	5	ovary green cul de sac blue adnexa yellow	other	yellow	33	2711	381	156	3788	73189
+B12	5	ovary green cul de sac blue adnexa yellow	other	yellow	34	1961	264	133	3017	50674
+B12	5	ovary green cul de sac blue adnexa yellow	other	yellow	35	738	139	70	1190	25446
+B12	5	ovary green cul de sac blue adnexa yellow	other	yellow	36	1493	183	110	2271	38653
+B12	5	ovary green cul de sac blue adnexa yellow	other	yellow	37	2725	319	181	4081	64501
+B12	5	ovary green cul de sac blue adnexa yellow	other	yellow	38	0	0	0	0	16
+B12	5	ovary green cul de sac blue adnexa yellow	other	yellow	39	2774	384	218	4220	68582
+B12	5	ovary green cul de sac blue adnexa yellow	other	yellow	40	2382	342	187	3613	62298
+B12	5	ovary green cul de sac blue adnexa yellow	other	yellow	41	1577	300	129	2212	93779
+B12	5	ovary green cul de sac blue adnexa yellow	other	yellow	42	1224	256	99	1797	77270
+B12	5	ovary green cul de sac blue adnexa yellow	other	yellow	43	946	172	66	1499	42598
+B12	5	ovary green cul de sac blue adnexa yellow	other	yellow	44	745	118	42	1183	55194
+B12	5	ovary green cul de sac blue adnexa yellow	other	yellow	45	2738	384	196	3516	68118
+B12	5	ovary green cul de sac blue adnexa yellow	other	yellow	46	4685	592	314	6481	90794
+B12	5	ovary green cul de sac blue adnexa yellow	other	yellow	47	4191	493	266	5645	67105
+C01	13	R Ovary Yellow Omentum Green Right Ovary Green	omentum	green	15	960	168	120	1429	8798
+C01	13	R Ovary Yellow Omentum Green Right Ovary Green	omentum	green	16	2193	488	268	3235	24151
+C01	13	R Ovary Yellow Omentum Green Right Ovary Green	omentum	green	17	1091	207	114	1817	27509
+C01	13	R Ovary Yellow Omentum Green Right Ovary Green	omentum	green	18	683	150	80	935	8051
+C01	13	R Ovary Yellow Omentum Green Right Ovary Green	omentum	green	19	2414	289	114	1936	33097
+C01	13	R Ovary Yellow Omentum Green Right Ovary Green	omentum	green	20	2860	559	273	4089	34322
+C01	13	R Ovary Yellow Omentum Green Right Ovary Green	omentum	green	21	1740	250	99	2332	37463
+C01	13	R Ovary Yellow Omentum Green Right Ovary Green	omentum	green	22	1056	177	101	1365	14930
+C01	13	R Ovary Yellow Omentum Green Right Ovary Green	omentum	green	23	938	128	55	1052	13003
+C01	13	R Ovary Yellow Omentum Green Right Ovary Green	omentum	green	24	481	105	59	831	4551
+C01	13	R Ovary Yellow Omentum Green Right Ovary Green	omentum	green	25	554	123	56	1156	30638
+C01	13	R Ovary Yellow Omentum Green Right Ovary Green	omentum	green	26	2729	264	103	2382	35356
+C01	13	R Ovary Yellow Omentum Green Right Ovary Green	omentum	green	27	1746	291	144	3320	36317
+C01	13	R Ovary Yellow Omentum Green Right Ovary Green	omentum	green	28	2715	283	88	2282	44104
+C01	13	R Ovary Yellow Omentum Green Right Ovary Green	omentum	green	29	2065	284	149	2293	21469
+C01	13	R Ovary Yellow Omentum Green Right Ovary Green	omentum	green	30	1310	274	101	1483	37165
+C02	13	R Ovary Yellow Omentum Blue	omentum	blue	3	1003	158	76	1125	41475
+C02	13	R Ovary Yellow Omentum Blue	omentum	blue	4	3300	447	227	4066	54375
+C02	13	R Ovary Yellow Omentum Blue	omentum	blue	5	653	104	50	650	41934
+C02	13	R Ovary Yellow Omentum Blue	omentum	blue	6	714	180	94	1238	54145
+C02	13	R Ovary Yellow Omentum Blue	omentum	blue	7	828	483	188	1937	43196
+C02	13	R Ovary Yellow Omentum Blue	omentum	blue	8	515	182	97	1132	32484
+C02	13	R Ovary Yellow Omentum Blue	omentum	blue	9	432	68	47	798	14819
+C03	13	R Ovary Yellow Omentum Green Right Ovary Green	ovary	green	34	0	0	0	5	486
+C03	13	R Ovary Yellow Omentum Green Right Ovary Green	ovary	green	35	0	0	0	0	632
+C03	13	R Ovary Yellow Omentum Green Right Ovary Green	ovary	green	36	21	12	7	59	1097
+C04	13	R Ovary Yellow Omentum Blue	ovary	blue	40	311	56	39	466	10638
+C04	13	R Ovary Yellow Omentum Blue	ovary	blue	41	623	329	71	801	19179
+C04	13	R Ovary Yellow Omentum Blue	ovary	blue	42	264	80	12	433	16923
+C04	13	R Ovary Yellow Omentum Blue	ovary	blue	43	754	732	189	1056	26691
+C04	13	R Ovary Yellow Omentum Blue	ovary	blue	44	543	100	53	887	25688
+C04	13	R Ovary Yellow Omentum Blue	ovary	blue	45	1205	330	146	1572	20128
+C04	13	R Ovary Yellow Omentum Blue	ovary	blue	46	930	158	90	1363	37317
+C04	13	R Ovary Yellow Omentum Blue	ovary	blue	47	855	177	114	1931	30605
+C04	13	R Ovary Yellow Omentum Blue	ovary	blue	48	357	94	56	813	29289
+C04	13	R Ovary Yellow Omentum Blue	ovary	blue	49	326	79	34	849	34846
+C04	13	R Ovary Yellow Omentum Blue	ovary	blue	50	729	99	42	686	38680
+C04	13	R Ovary Yellow Omentum Blue	ovary	blue	51	856	118	47	788	42083
+C04	13	R Ovary Yellow Omentum Blue	ovary	blue	52	1089	262	91	1715	68171
+C04	13	R Ovary Yellow Omentum Blue	ovary	blue	53	755	172	82	1359	56450
+C04	13	R Ovary Yellow Omentum Blue	ovary	blue	54	1231	328	166	2880	66429
+C04	13	R Ovary Yellow Omentum Blue	ovary	blue	55	524	330	87	1302	30741
+C04	13	R Ovary Yellow Omentum Blue	ovary	blue	56	592	208	89	1421	35020
+C04	13	R Ovary Yellow Omentum Blue	ovary	blue	57	304	100	46	810	24680
+C04	13	R Ovary Yellow Omentum Blue	ovary	blue	58	129	65	20	382	15869
+C04	13	R Ovary Yellow Omentum Blue	ovary	blue	59	325	225	80	895	22960
+C04	13	R Ovary Yellow Omentum Blue	ovary	blue	60	378	128	53	793	15649
+C04	13	R Ovary Yellow Omentum Blue	ovary	blue	61	602	189	89	1492	44253
+C05	13	R Ovary Yellow Omentum Green Right Ovary Green	ovary	yellow	70	946	450	316	6388	59795
+C05	13	R Ovary Yellow Omentum Green Right Ovary Green	ovary	yellow	71	1104	679	494	8192	71420
+C05	13	R Ovary Yellow Omentum Green Right Ovary Green	ovary	yellow	72	1102	504	343	6724	73994
+C05	13	R Ovary Yellow Omentum Green Right Ovary Green	ovary	yellow	73	791	359	268	5356	44850
+C05	13	R Ovary Yellow Omentum Green Right Ovary Green	ovary	yellow	74	0	0	0	2	33
+C05	13	R Ovary Yellow Omentum Green Right Ovary Green	ovary	yellow	75	651	197	148	3108	30160
+C05	13	R Ovary Yellow Omentum Green Right Ovary Green	ovary	yellow	76	373	233	163	2451	26599
+C06	16	left ovary blue	ovary	blue	3	632	312	74	869	54120
+C06	16	left ovary blue	ovary	blue	4	107	93	32	175	30117
+C06	16	left ovary blue	ovary	blue	5	446	309	97	717	34814
+C06	16	left ovary blue	ovary	blue	6	85	71	20	170	19872
+C06	16	left ovary blue	ovary	blue	7	144	143	60	351	19388
+C06	16	left ovary blue	ovary	blue	8	284	245	132	940	29247
+C06	16	left ovary blue	ovary	blue	9	14	10	7	103	6497
+C06	16	left ovary blue	ovary	blue	10	72	25	18	262	8860
+C06	16	left ovary blue	ovary	blue	11	356	202	114	1337	37460
+C06	16	left ovary blue	ovary	blue	12	137	106	80	830	38208
+C06	16	left ovary blue	ovary	blue	13	257	152	63	544	38922
+C06	16	left ovary blue	ovary	blue	14	121	109	68	463	36490
+C06	16	left ovary blue	ovary	blue	15	147	86	28	213	36275
+C06	16	left ovary blue	ovary	blue	16	127	87	51	386	39241
+C06	16	left ovary blue	ovary	blue	17	224	148	43	355	45406
+C06	16	left ovary blue	ovary	blue	18	80	65	33	241	27445
+C07	16	left ovary orange	ovary	yellow	23	129	58	13	90	18813
+C07	16	left ovary orange	ovary	yellow	24	598	279	158	701	15332
+C07	16	left ovary orange	ovary	yellow	25	516	231	61	388	59418
+C07	16	left ovary orange	ovary	yellow	26	456	122	49	517	25988
+C07	16	left ovary orange	ovary	yellow	27	169	31	12	170	8697
+C07	16	left ovary orange	ovary	yellow	28	201	41	21	264	14978
+C07	16	left ovary orange	ovary	yellow	29	632	121	63	491	9217
+C08	16		ovary	nan	nan	nan	nan	nan	nan	nan
+C09	16	right anterior psoas orange pouch of douglas blue	other	blue	34	47	102	73	444	22483
+C09	16	right anterior psoas orange pouch of douglas blue	other	blue	35	277	236	86	591	53472
+C09	16	right anterior psoas orange pouch of douglas blue	other	blue	36	107	152	87	356	20225
+C09	16	right anterior psoas orange pouch of douglas blue	other	blue	37	139	125	35	233	40420
+C09	16	right anterior psoas orange pouch of douglas blue	other	blue	38	369	204	69	575	55580
+C09	16	right anterior psoas orange pouch of douglas blue	other	blue	39	33	61	43	178	19200
+C09	16	right anterior psoas orange pouch of douglas blue	other	blue	40	68	97	62	217	30746
+C09	16	right anterior psoas orange pouch of douglas blue	other	blue	41	576	297	140	685	37911
+C09	16	right anterior psoas orange pouch of douglas blue	other	blue	42	750	359	170	901	30930
+C09	16	right anterior psoas orange pouch of douglas blue	other	blue	43	654	291	129	659	22685
+C09	16	right anterior psoas orange pouch of douglas blue	other	blue	44	782	315	124	1204	34057
+C09	16	right anterior psoas orange pouch of douglas blue	other	blue	45	100	94	32	213	21521
+C09	16	right anterior psoas orange pouch of douglas blue	other	blue	46	25	27	14	137	13997
+C09	16	right anterior psoas orange pouch of douglas blue	other	blue	47	153	90	37	189	57261
+C09	16	right anterior psoas orange pouch of douglas blue	other	blue	48	719	350	142	726	55702
+C09	16	right anterior psoas orange pouch of douglas blue	other	blue	49	83	80	48	720	36597
+C09	16	right anterior psoas orange pouch of douglas blue	other	blue	50	147	97	58	420	29383
+C09	16	right anterior psoas orange pouch of douglas blue	other	blue	51	51	110	71	615	34257
+C09	16	right anterior psoas orange pouch of douglas blue	other	blue	52	98	136	82	601	31237
+C10	16	right anterior psoas orange pouch of douglas blue	other	yellow	57	767	265	89	709	35079
+C10	16	right anterior psoas orange pouch of douglas blue	other	yellow	58	492	110	55	555	32469
+C10	16	right anterior psoas orange pouch of douglas blue	other	yellow	59	1199	604	116	798	27591
+C10	16	right anterior psoas orange pouch of douglas blue	other	yellow	60	683	346	140	556	21738
+C10	16	right anterior psoas orange pouch of douglas blue	other	yellow	61	237	46	10	134	13941
+C10	16	right anterior psoas orange pouch of douglas blue	other	yellow	62	539	303	105	357	23513
+C10	16	right anterior psoas orange pouch of douglas blue	other	yellow	63	300	98	34	132	18024
+C10	16	right anterior psoas orange pouch of douglas blue	other	yellow	64	326	205	83	249	12873
+C10	16	right anterior psoas orange pouch of douglas blue	other	yellow	65	79	53	27	103	10978
+C10	16	right anterior psoas orange pouch of douglas blue	other	yellow	66	268	213	103	390	8660
+C10	16	right anterior psoas orange pouch of douglas blue	other	yellow	67	194	157	92	261	7594
+C10	16	right anterior psoas orange pouch of douglas blue	other	yellow	68	486	214	30	496	12025
+C10	16	right anterior psoas orange pouch of douglas blue	other	yellow	69	496	299	57	419	6671
+C10	16	right anterior psoas orange pouch of douglas blue	other	yellow	70	149	48	20	123	14461
+C10	16	right anterior psoas orange pouch of douglas blue	other	yellow	71	154	43	15	145	23283
+C10	16	right anterior psoas orange pouch of douglas blue	other	yellow	72	52	6	1	82	8042
+C10	16	right anterior psoas orange pouch of douglas blue	other	yellow	73	114	12	5	177	13982
+C10	16	right anterior psoas orange pouch of douglas blue	other	yellow	74	104	105	53	305	53185
+C10	16	right anterior psoas orange pouch of douglas blue	other	yellow	75	167	33	19	371	16850
+C10	16	right anterior psoas orange pouch of douglas blue	other	yellow	76	172	52	23	256	5846
+C10	16	right anterior psoas orange pouch of douglas blue	other	yellow	77	194	157	92	261	7594
+C11	17	Left Omentum Yellow Right Ovary Blue	omentum	yellow	2	2970	119	56	1553	24485
+C11	17	Left Omentum Yellow Right Ovary Blue	omentum	yellow	3	830	34	5	236	25248
+C11	17	Left Omentum Yellow Right Ovary Blue	omentum	yellow	4	68	645	168	217	16447
+C11	17	Left Omentum Yellow Right Ovary Blue	omentum	yellow	5	292	24	9	345	8603
+C11	17	Left Omentum Yellow Right Ovary Blue	omentum	yellow	6	72	20	6	70	5474
+C11	17	Left Omentum Yellow Right Ovary Blue	omentum	yellow	7	643	34	8	369	7534
+C11	17	Left Omentum Yellow Right Ovary Blue	omentum	yellow	8	184	19	4	81	5667
+C11	17	Left Omentum Yellow Right Ovary Blue	omentum	yellow	9	1031	95	27	474	19505
+C11	17	Left Omentum Yellow Right Ovary Blue	omentum	yellow	10	1543	108	53	1143	27512
+C11	17	Left Omentum Yellow Right Ovary Blue	omentum	yellow	11	664	39	9	337	8537
+C12	17	Left Omentum Blue Sigmoid Serosa Blue p4	omentum	blue	41	1504	273	35	637	43348
+C12	17	Left Omentum Blue Sigmoid Serosa Blue p5	omentum	blue	42	429	65	14	173	17709
+C12	17	Left Omentum Blue Sigmoid Serosa Blue p6	omentum	blue	43	1552	76	28	713	37823
+C12	17	Left Omentum Blue Sigmoid Serosa Blue p7	omentum	blue	44	856	226	22	283	28715
+C12	17	Left Omentum Blue Sigmoid Serosa Blue p8	omentum	blue	45	620	49	28	337	19854
+C12	17	Left Omentum Blue Sigmoid Serosa Blue p9	omentum	blue	46	911	52	14	324	36488
+C12	17	Left Omentum Blue Sigmoid Serosa Blue p10	omentum	blue	47	1210	62	24	667	30303
+C12	17	Left Omentum Blue Sigmoid Serosa Blue p11	omentum	blue	48	552	65	29	298	23735
+D01	17	Left Omentum Green Sigmoid Serosa green p4	other	green	35	431	79	20	127	17283
+D01	17	Left Omentum Green Sigmoid Serosa green p4	other	green	36	517	78	23	148	21756
+D01	17	Left Omentum Green Sigmoid Serosa green p4	other	green	37	669	120	53	313	25769
+D02	17	Left Omentum Blue Sigmoid Serosa Blue p4	other	blue	52	1648	257	188	2700	23531
+D03	17	Left Omentum Yellow Right Ovary Blue	ovary	blue	16	1472	135	39	1831	123995
+D03	17	Left Omentum Yellow Right Ovary Blue	ovary	blue	17	1020	105	29	594	105583
+D03	17	Left Omentum Yellow Right Ovary Blue	ovary	blue	18	89	5	2	99	30221
+D03	17	Left Omentum Yellow Right Ovary Blue	ovary	blue	19	123	23	4	77	28551
+D03	17	Left Omentum Yellow Right Ovary Blue	ovary	blue	20	218	19	7	266	27024
+D03	17	Left Omentum Yellow Right Ovary Blue	ovary	blue	21	300	34	11	248	49708
