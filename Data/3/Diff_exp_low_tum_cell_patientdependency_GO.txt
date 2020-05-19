@@ -1,0 +1,22 @@
+Analysis Type:	PANTHER Overrepresentation Test (Released 20181113)											
+Annotation Version and Release Date:	GO Ontology database  Released 2019-01-01											
+Analyzed List:	upload_1 (Homo sapiens)											
+Reference List:	Homo sapiens (all genes in database)											
+Test Type:	FISHER								0.05	0.01	0.001	0.0001
+Correction:	FDR								*	**	***	****
+GO biological process complete	Homo sapiens - REFLIST (20996)	upload_1 (30)	upload_1 (expected)	upload_1 (over/under)	upload_1 (fold Enrichment)	upload_1 (raw P-value)	upload_1 (FDR)					
+regulation of humoral immune response (GO:0002920)	134	4	0.19	+	20.89	4.26E-05	0.0449	*	0.0051	-0.0349	-0.0439	-0.0448
+response to interferon-gamma (GO:0034341)	182	5	0.26	+	19.23	6.27E-06	0.011	*	0.039	-0.001	-0.01	-0.0109
+myeloid leukocyte activation (GO:0002274)	573	9	0.82	+	10.99	7.63E-08	0.000241	***	0.049759	0.009759	0.000759	-0.000141
+innate immune response (GO:0045087)	744	10	1.06	+	9.41	5.19E-08	0.000205	***	0.049795	0.009795	0.000795	-0.000105
+leukocyte activation (GO:0045321)	900	11	1.29	+	8.55	2.44E-08	0.000128	***	0.049872	0.009872	0.000872	-0.000028
+leukocyte activation involved in immune response (GO:0002366)	613	7	0.88	+	7.99	2.11E-05	0.0257	*	0.0243	-0.0157	-0.0247	-0.0256
+cell activation involved in immune response (GO:0002263)	617	7	0.88	+	7.94	2.20E-05	0.0248	*	0.0252	-0.0148	-0.0238	-0.0247
+leukocyte mediated immunity (GO:0002443)	759	8	1.08	+	7.38	8.67E-06	0.0137	*	0.0363	-0.0037	-0.0127	-0.0136
+cell activation (GO:0001775)	1046	11	1.49	+	7.36	1.11E-07	0.000251	***	0.049749	0.009749	0.000749	-0.000151
+immune response (GO:0006955)	1818	17	2.6	+	6.54	3.66E-11	0.000000577	****	0.049999423	0.009999423	0.000999423	0.000099423
+defense response (GO:0006952)	1310	12	1.87	+	6.41	1.09E-07	0.000286	***	0.049714	0.009714	0.000714	-0.000186
+immune effector process (GO:0002252)	1071	9	1.53	+	5.88	1.29E-05	0.0186	*	0.0314	-0.0086	-0.0176	-0.0185
+regulation of immune response (GO:0050776)	1118	9	1.6	+	5.63	1.82E-05	0.0239	*	0.0261	-0.0139	-0.0229	-0.0238
+regulation of immune system process (GO:0002682)	1621	12	2.32	+	5.18	1.07E-06	0.00211	**	0.04789	0.00789	-0.00111	-0.00201
+immune system process (GO:0002376)	2729	19	3.9	+	4.87	1.97E-10	0.00000156	****	0.04999844	0.00999844	0.00099844	0.00009844
