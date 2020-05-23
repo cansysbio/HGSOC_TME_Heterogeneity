@@ -1,0 +1,36 @@
+Sample:	NK % of CD45	NK % of live cells	%NK GrB+	CD4 % of CD45	CD4 % of live cells	Treg % of CD4	Tcon % of CD4	CD8 % of CD45	CD8 % of live cells	%CD8 Granzyme B+	CD11b % of CD45	CD11b% of live	CD19 % of CD45	CD19 % of live														
+Peritoneal Wash Cis_Tube_001_062.fcs	6.51	6.34	11.1	6.4	6.23	23	74.9	3.77	3.67	1.13	30.7	29.9	31.8	31														
+Peritoneal Wash Cis_Tube_002_063.fcs	4.56	4.33	10.1	4.78	4.54	18.9	79	2.41	2.28	0.95	48.6	46.1	14.6	13.8														
+Peritoneal Wash Cis_Tube_003_064.fcs	5.83	5.54	9.74	9.52	9.05	16.7	81.6	4.7	4.47	0.97	24.2	23	31.9	30.3														
+Peritoneal Wash Cis_Tube_004_065.fcs	5.77	5.46	9.69	7.72	7.3	15.5	82.8	4.15	3.92	1.08	24.4	23	38.3	36.2														
+Peritoneal Wash Cis_Tube_005_066.fcs	7.53	7.28	7.87	6.88	6.65	14.1	83.1	5	4.83	0.55	29.1	28.1	27.2	26.3														
+Peritoneal Wash PBS_Tube_001_052.fcs	3.24	3.04	10.3	5.38	5.06	21.6	76.4	2.45	2.3	0.74	32.2	30.3	25	23.5														
+Peritoneal Wash PBS_Tube_002_053.fcs	3.73	3.58	8.29	6.74	6.46	20.3	77.9	3	2.87	1.15	31.8	30.5	25.6	24.6														
+Peritoneal Wash PBS_Tube_003_054.fcs	3.57	3.51	11.3	5.38	5.29	16.4	81.7	3.08	3.03	1.07	49.5	48.7	16.9	16.6														
+Peritoneal Wash PBS_Tube_004_055.fcs	2.98	2.83	9.38	7.88	7.5	17.9	80.3	3.93	3.74	1.51	32.4	30.8	28.1	26.7														
+Peritoneal Wash PBS_Tube_005_056.fcs	3.63	3.47	11.4	8.66	8.29	15.6	83	3.71	3.55	1.64	19	18.2	36.7	35.1														
+																												
+																												
+																												
+																												
+																												
+																												
+																												
+																												
+																												
+																												
+																												
+																												
+																												
+																												
+																												
+																												
+																												
+																												
+																												
+																												
+																												
+																												
+																												
+																												
+																												
