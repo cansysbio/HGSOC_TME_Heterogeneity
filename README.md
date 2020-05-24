@@ -3,7 +3,7 @@
 <img src="https://github.com/cansysbio/HGSOC_TME_Heterogeneity/blob/master/Figures/graphical_abstract/OVCT_GraphicalAbstract_Rebuttal_ng.png" width="50%" align=left>
 
 <p align="justify">
-This repository constains the scripts for data processing, analysis and figure generation using bulk mRNA microarray data, whole exome sequencing, and imaging data integration of high-grade serous ovarian cancer human samples pre- and post-neoadjuvant therapy. 
+This repository contains the scripts for data processing, analysis and figure generation using bulk mRNA microarray data, whole exome sequencing, and imaging data integration of high-grade serous ovarian cancer human samples pre- and post-neoadjuvant therapy. 
 </p>
 
 Tha paper can be found at: 
