@@ -23,4 +23,6 @@ Whole Exome Sequencing data, TCR sequencing data, and imaging data have to be re
 
 Scripts, Data, and, Figures are organized per figure in the manuscript.
 
+The packages needed to execute the scripts can be found in [conda_env.yml](https://github.com/cansysbio/HGSOC_TME_Heterogeneity/blob/master/conda_env.yml).
+
 Preprocessed microarray mRNA data files are already provided in the [Data](https://github.com/cansysbio/HGSOC_TME_Heterogeneity/tree/master/Data/1) folder 1.
