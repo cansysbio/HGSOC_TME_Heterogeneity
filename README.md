@@ -8,7 +8,7 @@ This repository contains the scripts for data processing, analysis and figure ge
 
 Tha paper can be found at: 
 
-[Unraveling Tumor-Immune Heterogeneity in Advanced Ovarian Cancer Uncovers Immunogenic Effect of Chemotherapy](https://www.biorxiv.org/content/10.1101/441428v2)
+[Unraveling Tumor-Immune Heterogeneity in Advanced Ovarian Cancer Uncovers Immunogenic Effect of Chemotherapy](https://www.nature.com/articles/s41588-020-0630-5)
 
 ## Raw data
 
